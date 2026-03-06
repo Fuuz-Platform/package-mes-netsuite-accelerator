@@ -1,0 +1,2927 @@
+{
+  "header": {
+    "id": "integration",
+    "name": "Integration",
+    "description": "Integration Form with list of models and their transactions/status",
+    "active": true,
+    "moduleId": "integration",
+    "isWidget": false
+  },
+  "version": {
+    "id": "clxumxr6l0uk4014mavs9dihe",
+    "number": "0.0.11",
+    "description": "",
+    "screenId": "integration",
+    "design": {
+      "components": [
+        {
+          "name": "New Screen",
+          "tabTitle": "New Tab",
+          "type": "canvas",
+          "props": {
+            "design": {
+              "ROOT": {
+                "type": {
+                  "resolvedName": "Screen"
+                },
+                "isCanvas": true,
+                "props": {
+                  "padding": 0,
+                  "margin": 0,
+                  "flexDirection": "column",
+                  "flexWrap": false,
+                  "alignItems": "stretch",
+                  "justifyContent": "flex-start",
+                  "width": "100%",
+                  "height": "100%",
+                  "hidden": false,
+                  "flexGrow": false,
+                  "shadow": false,
+                  "borderRadius": 0
+                },
+                "displayName": "Screen",
+                "custom": {
+                  "elementName": "Screen",
+                  "elementCounts": {
+                    "Container": 24,
+                    "Form": 4,
+                    "Text": 11,
+                    "Action Button": 9,
+                    "Cards": 2,
+                    "Tab Bar": 1,
+                    "Slider": 1,
+                    "Switch": 3,
+                    "Button Group": 1,
+                    "Checkbox": 4,
+                    "Table": 5,
+                    "Table Column": 25,
+                    "Combobox": 1,
+                    "Date Range": 1
+                  }
+                },
+                "parent": null,
+                "hidden": false,
+                "nodes": [
+                  "lgaOKyozI",
+                  "X74Nfd19z"
+                ],
+                "linkedNodes": {}
+              },
+              "lgaOKyozI": {
+                "type": {
+                  "resolvedName": "Container"
+                },
+                "isCanvas": true,
+                "props": {
+                  "padding": 0,
+                  "margin": 0,
+                  "flexWrap": true,
+                  "flexDirection": "column",
+                  "justifyContent": "flex-start",
+                  "alignItems": "stretch",
+                  "width": "100%",
+                  "height": "auto",
+                  "hidden": false,
+                  "flexGrow": false,
+                  "shadow": false,
+                  "borderRadius": 0,
+                  "collapsible": false,
+                  "collapsedFooter": false,
+                  "collapsedSize": 0,
+                  "collapsedByDefault": false,
+                  "onClickTransform": false,
+                  "layout": "flex",
+                  "bordersInput": {},
+                  "justifyItems": "start",
+                  "style": {}
+                },
+                "displayName": "Container",
+                "custom": {
+                  "elementName": "Container1"
+                },
+                "parent": "ROOT",
+                "hidden": false,
+                "nodes": [
+                  "3F2JYG6k2"
+                ],
+                "linkedNodes": {}
+              },
+              "X74Nfd19z": {
+                "type": {
+                  "resolvedName": "Container"
+                },
+                "isCanvas": true,
+                "props": {
+                  "padding": 0,
+                  "margin": 0,
+                  "flexWrap": true,
+                  "flexDirection": "column",
+                  "justifyContent": "flex-start",
+                  "alignItems": "stretch",
+                  "width": "100%",
+                  "height": "auto",
+                  "hidden": false,
+                  "flexGrow": true,
+                  "shadow": false,
+                  "borderRadius": 0,
+                  "collapsible": false,
+                  "collapsedFooter": false,
+                  "collapsedSize": 0,
+                  "collapsedByDefault": false,
+                  "onClickTransform": false,
+                  "layout": "flex",
+                  "bordersInput": {},
+                  "justifyItems": "start",
+                  "style": {}
+                },
+                "displayName": "Container",
+                "custom": {
+                  "elementName": "Container2"
+                },
+                "parent": "ROOT",
+                "hidden": false,
+                "nodes": [
+                  "iHf4ROApd"
+                ],
+                "linkedNodes": {}
+              },
+              "3F2JYG6k2": {
+                "type": {
+                  "resolvedName": "Form"
+                },
+                "isCanvas": true,
+                "props": {
+                  "query": {
+                    "api": "Application",
+                    "query": null,
+                    "dataPath": "edges[0]",
+                    "dataTransform": {
+                      "transform": "(\n\n$q:= $query({\"statement\":\"query($w:IntegrationMessageWhereInput){m:integrationMessage(where:$w,first:1,orderBy:{field:createdAt, direction:desc}){edges{node{message type{name color}}}}}\",\"variables\":{\n  \"w\": {\n    \"global\": {\n      \"_eq\": true\n    },\n    \"integrationId\": {\n      \"_eq\": \"NetSuite\"\n    }\n  }\n}});\nedges.node~>|$|{\n  \"message\":$q.m.edges.node.message,\n  \"color\": $not(data.active) ? \"#ddd\" : $q.m.edges.node.type.color\n}|\n\n)",
+                      "remote": true
+                    },
+                    "dataSubscription": {
+                      "enabled": true,
+                      "topics": [
+                        {
+                          "topic": "netSuite.integration"
+                        }
+                      ],
+                      "filterTransform": "$components.IntegrationForm.fn.loadData()"
+                    },
+                    "autoLoad": true,
+                    "parameters": "{\n  \"filter\": {\n    \"id\": {\n      \"_eq\": \"NetSuite\"\n    }\n  },\n  \"first\": 1\n}",
+                    "fields": [
+                      "id",
+                      "active"
+                    ],
+                    "disableDataChangeIndicator": false,
+                    "model": "Integration"
+                  },
+                  "blockNavigationWhenDirty": false,
+                  "description": ""
+                },
+                "displayName": "Form",
+                "custom": {
+                  "elementName": "IntegrationForm"
+                },
+                "parent": "lgaOKyozI",
+                "hidden": false,
+                "nodes": [
+                  "B2wNmP7u8h"
+                ],
+                "linkedNodes": {}
+              },
+              "B2wNmP7u8h": {
+                "type": {
+                  "resolvedName": "Container"
+                },
+                "isCanvas": true,
+                "props": {
+                  "padding": 8,
+                  "margin": 0,
+                  "flexWrap": true,
+                  "flexDirection": "row",
+                  "justifyContent": "flex-start",
+                  "alignItems": "center",
+                  "width": "100%",
+                  "height": "90px",
+                  "hidden": false,
+                  "flexGrow": false,
+                  "shadow": false,
+                  "borderRadius": 0,
+                  "collapsible": false,
+                  "collapsedFooter": false,
+                  "collapsedSize": 0,
+                  "collapsedByDefault": false,
+                  "onClickTransform": false,
+                  "layout": "flex",
+                  "bordersInput": {
+                    "borderMode": "full",
+                    "border": "0px undefined ",
+                    "borderLeft": "0px undefined "
+                  },
+                  "justifyItems": "start",
+                  "style": {
+                    "__transform": "{\n  \"background\": $coalesce([$components.IntegrationForm.data.color,\"#eee\"])\n}",
+                    "__dynamicFields": {
+                      "payload": null,
+                      "context": [
+                        "components.IntegrationForm.data.color"
+                      ]
+                    },
+                    "__cacheKey": "",
+                    "__remote": false
+                  },
+                  "background": "paper"
+                },
+                "displayName": "Container",
+                "custom": {
+                  "elementName": "Container3"
+                },
+                "parent": "3F2JYG6k2",
+                "hidden": false,
+                "nodes": [
+                  "PjCjUP9V-",
+                  "d9ZP_p93V"
+                ],
+                "linkedNodes": {}
+              },
+              "g2mgi02c_": {
+                "type": {
+                  "resolvedName": "DisplayText"
+                },
+                "isCanvas": false,
+                "props": {
+                  "type": "display",
+                  "padding": 8,
+                  "width": "200px",
+                  "height": "auto",
+                  "label": "Name",
+                  "visible": true,
+                  "justifyContent": "start",
+                  "alignTextItems": "start",
+                  "labelFontSize": "body1",
+                  "fontSize": "h3",
+                  "formElement": "IntegrationForm",
+                  "target": {
+                    "dataPath": null
+                  },
+                  "dataPath": "name",
+                  "labelPosition": {
+                    "id": "null",
+                    "label": "None"
+                  }
+                },
+                "displayName": "Text",
+                "custom": {
+                  "elementName": "Text1"
+                },
+                "parent": "PjCjUP9V-",
+                "hidden": false,
+                "nodes": [],
+                "linkedNodes": {}
+              },
+              "iHf4ROApd": {
+                "type": {
+                  "resolvedName": "TabBar"
+                },
+                "isCanvas": false,
+                "props": {
+                  "width": "100%",
+                  "height": "100%",
+                  "orientation": "horizontal",
+                  "justifyTabs": "start",
+                  "tabWidth": 200,
+                  "hidden": false,
+                  "tabActiveColor": "secondary",
+                  "tabs": [
+                    {
+                      "tabTitle": "Inbound"
+                    },
+                    {
+                      "tabTitle": "Outbound"
+                    },
+                    {
+                      "tabTitle": "Transactions"
+                    }
+                  ]
+                },
+                "displayName": "Tab Bar",
+                "custom": {
+                  "elementName": "TabBar"
+                },
+                "parent": "X74Nfd19z",
+                "hidden": false,
+                "nodes": [],
+                "linkedNodes": {
+                  "TabBar1Detail0": "3ZZTiKSwYs",
+                  "TabBarDetail1": "42ojUX9A6",
+                  "TabBarDetail0": "APo06ZDQ6",
+                  "TabBarDetail2": "glUGqULhvr"
+                }
+              },
+              "3ZZTiKSwYs": {
+                "type": {
+                  "resolvedName": "Container"
+                },
+                "isCanvas": true,
+                "props": {
+                  "padding": 0,
+                  "margin": 0,
+                  "flexWrap": true,
+                  "flexDirection": "column",
+                  "justifyContent": "flex-start",
+                  "alignItems": "stretch",
+                  "width": "100%",
+                  "height": "100%",
+                  "hidden": false,
+                  "flexGrow": true,
+                  "shadow": false,
+                  "borderRadius": 0,
+                  "collapsible": false,
+                  "collapsedFooter": false,
+                  "collapsedSize": 0,
+                  "collapsedByDefault": false,
+                  "onClickTransform": false,
+                  "layout": "flex",
+                  "bordersInput": {},
+                  "justifyItems": "start",
+                  "style": {},
+                  "lockSize": true
+                },
+                "displayName": "Container",
+                "custom": {
+                  "elementName": "TabBarDetail0"
+                },
+                "parent": "iHf4ROApd",
+                "hidden": false,
+                "nodes": [],
+                "linkedNodes": {}
+              },
+              "d9ZP_p93V": {
+                "type": {
+                  "resolvedName": "Container"
+                },
+                "isCanvas": true,
+                "props": {
+                  "padding": 0,
+                  "margin": 0,
+                  "flexWrap": true,
+                  "flexDirection": "row",
+                  "justifyContent": "flex-start",
+                  "alignItems": "center",
+                  "width": "auto",
+                  "height": "auto",
+                  "hidden": false,
+                  "flexGrow": false,
+                  "shadow": false,
+                  "borderRadius": 0,
+                  "collapsible": false,
+                  "collapsedFooter": false,
+                  "collapsedSize": 0,
+                  "collapsedByDefault": false,
+                  "onClickTransform": false,
+                  "layout": "flex",
+                  "bordersInput": {},
+                  "justifyItems": "start",
+                  "style": {}
+                },
+                "displayName": "Container",
+                "custom": {
+                  "elementName": "Container5"
+                },
+                "parent": "B2wNmP7u8h",
+                "hidden": false,
+                "nodes": [
+                  "sHw0KLToC",
+                  "clt2c5yno00ep356mvmhjhmck"
+                ],
+                "linkedNodes": {}
+              },
+              "gG8QmNjaJ": {
+                "type": {
+                  "resolvedName": "ActionButton"
+                },
+                "isCanvas": false,
+                "props": {
+                  "margin": 6,
+                  "buttonColor": "green",
+                  "icon": {
+                    "__transform": "{\n\n}",
+                    "__dynamicFields": {
+                      "payload": null,
+                      "context": []
+                    },
+                    "__cacheKey": "",
+                    "__remote": false
+                  },
+                  "width": "100px",
+                  "height": "50px",
+                  "disabled": true,
+                  "hidden": false,
+                  "useIconButton": false,
+                  "disableHover": false,
+                  "disableRipple": false,
+                  "action": [],
+                  "title": "Change Active Status",
+                  "text": "ACTIVE",
+                  "customTextSize": 18
+                },
+                "displayName": "Action Button",
+                "custom": {
+                  "elementName": "ActionButton2"
+                },
+                "parent": "sHw0KLToC",
+                "hidden": false,
+                "nodes": [],
+                "linkedNodes": {}
+              },
+              "clt2c3i9j00ci356m7ik2h15j": {
+                "type": {
+                  "resolvedName": "ActionButton"
+                },
+                "isCanvas": false,
+                "props": {
+                  "margin": 6,
+                  "buttonColor": "error",
+                  "icon": {
+                    "__transform": "{\n\n}",
+                    "__dynamicFields": {
+                      "payload": null,
+                      "context": []
+                    },
+                    "__cacheKey": "",
+                    "__remote": false
+                  },
+                  "width": "100px",
+                  "height": "50px",
+                  "disabled": true,
+                  "hidden": false,
+                  "useIconButton": false,
+                  "disableHover": false,
+                  "disableRipple": false,
+                  "action": [],
+                  "title": "Change Active Status",
+                  "text": "INACTIVE",
+                  "customTextSize": 18
+                },
+                "displayName": "Action Button",
+                "custom": {
+                  "elementName": "ActionButton3"
+                },
+                "parent": "clt2c5yno00ep356mvmhjhmck",
+                "hidden": false,
+                "nodes": [],
+                "linkedNodes": {}
+              },
+              "sHw0KLToC": {
+                "type": {
+                  "resolvedName": "Container"
+                },
+                "isCanvas": true,
+                "props": {
+                  "padding": 0,
+                  "margin": 0,
+                  "flexWrap": true,
+                  "flexDirection": "column",
+                  "justifyContent": "flex-start",
+                  "alignItems": "stretch",
+                  "width": "100px",
+                  "height": "auto",
+                  "hidden": {
+                    "__transform": "$not($components.IntegrationForm.data.active)",
+                    "__dynamicFields": {
+                      "payload": null,
+                      "context": []
+                    },
+                    "__cacheKey": "",
+                    "__remote": false
+                  },
+                  "flexGrow": false,
+                  "shadow": false,
+                  "borderRadius": 0,
+                  "collapsible": false,
+                  "collapsedFooter": false,
+                  "collapsedSize": 0,
+                  "collapsedByDefault": false,
+                  "onClickTransform": false,
+                  "layout": "flex",
+                  "bordersInput": {},
+                  "justifyItems": "start",
+                  "style": {}
+                },
+                "displayName": "Container",
+                "custom": {
+                  "elementName": "Container8"
+                },
+                "parent": "d9ZP_p93V",
+                "hidden": false,
+                "nodes": [
+                  "gG8QmNjaJ"
+                ],
+                "linkedNodes": {}
+              },
+              "clt2c5yno00ep356mvmhjhmck": {
+                "type": {
+                  "resolvedName": "Container"
+                },
+                "isCanvas": true,
+                "props": {
+                  "padding": 0,
+                  "margin": 0,
+                  "flexWrap": true,
+                  "flexDirection": "column",
+                  "justifyContent": "flex-start",
+                  "alignItems": "stretch",
+                  "width": "100px",
+                  "height": "auto",
+                  "hidden": {
+                    "__transform": "$components.IntegrationForm.data.active",
+                    "__dynamicFields": {
+                      "payload": null,
+                      "context": []
+                    },
+                    "__cacheKey": "",
+                    "__remote": false
+                  },
+                  "flexGrow": false,
+                  "shadow": false,
+                  "borderRadius": 0,
+                  "collapsible": false,
+                  "collapsedFooter": false,
+                  "collapsedSize": 0,
+                  "collapsedByDefault": false,
+                  "onClickTransform": false,
+                  "layout": "flex",
+                  "bordersInput": {},
+                  "justifyItems": "start",
+                  "style": {}
+                },
+                "displayName": "Container",
+                "custom": {
+                  "elementName": "Container9"
+                },
+                "parent": "d9ZP_p93V",
+                "hidden": false,
+                "nodes": [
+                  "clt2c3i9j00ci356m7ik2h15j"
+                ],
+                "linkedNodes": {}
+              },
+              "42ojUX9A6": {
+                "type": {
+                  "resolvedName": "Container"
+                },
+                "isCanvas": true,
+                "props": {
+                  "padding": 0,
+                  "margin": 0,
+                  "flexWrap": true,
+                  "flexDirection": "column",
+                  "justifyContent": "flex-start",
+                  "alignItems": "stretch",
+                  "width": "100%",
+                  "height": "100%",
+                  "hidden": false,
+                  "flexGrow": true,
+                  "shadow": false,
+                  "borderRadius": 0,
+                  "collapsible": false,
+                  "collapsedFooter": false,
+                  "collapsedSize": 0,
+                  "collapsedByDefault": false,
+                  "onClickTransform": false,
+                  "layout": "flex",
+                  "bordersInput": {},
+                  "justifyItems": "start",
+                  "style": {},
+                  "lockSize": true
+                },
+                "displayName": "Container",
+                "custom": {
+                  "elementName": "TabBarDetail1"
+                },
+                "parent": "iHf4ROApd",
+                "hidden": false,
+                "nodes": [
+                  "clt2fflmc0013356lqlc4zm6a"
+                ],
+                "linkedNodes": {}
+              },
+              "APo06ZDQ6": {
+                "type": {
+                  "resolvedName": "Container"
+                },
+                "isCanvas": true,
+                "props": {
+                  "padding": 0,
+                  "margin": 0,
+                  "flexWrap": true,
+                  "flexDirection": "column",
+                  "justifyContent": "flex-start",
+                  "alignItems": "stretch",
+                  "width": "100%",
+                  "height": "100%",
+                  "hidden": false,
+                  "flexGrow": true,
+                  "shadow": false,
+                  "borderRadius": 0,
+                  "collapsible": false,
+                  "collapsedFooter": false,
+                  "collapsedSize": 0,
+                  "collapsedByDefault": false,
+                  "onClickTransform": false,
+                  "layout": "flex",
+                  "bordersInput": {},
+                  "justifyItems": "start",
+                  "style": {},
+                  "lockSize": true
+                },
+                "displayName": "Container",
+                "custom": {
+                  "elementName": "TabBarDetail0"
+                },
+                "parent": "iHf4ROApd",
+                "hidden": false,
+                "nodes": [
+                  "3SJRxuAc2"
+                ],
+                "linkedNodes": {}
+              },
+              "MtftxYhVC": {
+                "type": {
+                  "resolvedName": "Container"
+                },
+                "isCanvas": true,
+                "props": {
+                  "padding": 0,
+                  "margin": 0,
+                  "flexWrap": true,
+                  "flexDirection": "row",
+                  "justifyContent": "flex-end",
+                  "alignItems": "center",
+                  "width": "100%",
+                  "height": "auto",
+                  "hidden": false,
+                  "flexGrow": false,
+                  "shadow": false,
+                  "borderRadius": 0,
+                  "collapsible": false,
+                  "collapsedFooter": false,
+                  "collapsedSize": 0,
+                  "collapsedByDefault": false,
+                  "onClickTransform": false,
+                  "layout": "flex",
+                  "bordersInput": {
+                    "borderMode": "full",
+                    "border": "0px solid #838383"
+                  },
+                  "justifyItems": "start",
+                  "style": {},
+                  "background": "paper"
+                },
+                "displayName": "Container",
+                "custom": {
+                  "elementName": "Container11"
+                },
+                "parent": "3SJRxuAc2",
+                "hidden": false,
+                "nodes": [
+                  "FbcLneuMH",
+                  "clt2ch26w00lz356md9hhxsst",
+                  "clt2fhmp0002h356lj20pyha8"
+                ],
+                "linkedNodes": {}
+              },
+              "clt2ch26w00lz356md9hhxsst": {
+                "type": {
+                  "resolvedName": "ActionButton"
+                },
+                "isCanvas": false,
+                "props": {
+                  "margin": 6,
+                  "buttonColor": "primary",
+                  "icon": {
+                    "icon": "rotate",
+                    "color": "primary",
+                    "variant": "light",
+                    "size": "xlarge"
+                  },
+                  "width": "60px",
+                  "height": "60px",
+                  "disabled": true,
+                  "hidden": true,
+                  "useIconButton": true,
+                  "disableHover": false,
+                  "disableRipple": false,
+                  "action": [
+                    {
+                      "type": "flow",
+                      "flowId": "integrationFunctions",
+                      "message": {
+                        "__transform": "\"Integration Synchronization Initiated...\""
+                      },
+                      "transforms": {
+                        "pre": "{\n  \"REQUEST\": {\n    \"DATA\": {\n      \"id\": \"NetSuite\"\n    },\n    \"ACTION\": \"SYNC\"\n  }\n}"
+                      }
+                    }
+                  ],
+                  "title": "Manually Sync Integration"
+                },
+                "displayName": "Action Button",
+                "custom": {
+                  "elementName": "ActionButton4"
+                },
+                "parent": "MtftxYhVC",
+                "hidden": false,
+                "nodes": [],
+                "linkedNodes": {}
+              },
+              "FbcLneuMH": {
+                "type": {
+                  "resolvedName": "Form"
+                },
+                "isCanvas": true,
+                "props": {
+                  "query": {
+                    "api": "Application",
+                    "query": null,
+                    "dataPath": "edges[0]",
+                    "dataTransform": {
+                      "transform": "{}",
+                      "remote": true
+                    },
+                    "dataSubscription": {
+                      "enabled": false
+                    },
+                    "autoLoad": true,
+                    "parameters": "{\n  \"filter\": {\n    \"id\": {\n      \"_eq\": \"NetSuite\"\n    }\n  },\n  \"first\": 1\n}",
+                    "fields": [
+                      "id"
+                    ],
+                    "disableDataChangeIndicator": false
+                  },
+                  "blockNavigationWhenDirty": true
+                },
+                "displayName": "Form",
+                "custom": {
+                  "elementName": "Form2"
+                },
+                "parent": "MtftxYhVC",
+                "hidden": false,
+                "nodes": [
+                  "0hXjMGU35t"
+                ],
+                "linkedNodes": {}
+              },
+              "0hXjMGU35t": {
+                "type": {
+                  "resolvedName": "Container"
+                },
+                "isCanvas": true,
+                "props": {
+                  "padding": 8,
+                  "margin": 8,
+                  "flexWrap": false,
+                  "flexDirection": "row",
+                  "justifyContent": "flex-start",
+                  "alignItems": "stretch",
+                  "width": "100%",
+                  "height": "auto",
+                  "hidden": false,
+                  "flexGrow": false,
+                  "shadow": false,
+                  "borderRadius": 0,
+                  "collapsible": false,
+                  "collapsedFooter": false,
+                  "collapsedSize": 0,
+                  "collapsedByDefault": false,
+                  "onClickTransform": false,
+                  "layout": "flex",
+                  "bordersInput": {},
+                  "justifyItems": "start",
+                  "style": {},
+                  "background": "paper"
+                },
+                "displayName": "Container",
+                "custom": {
+                  "elementName": "Container13"
+                },
+                "parent": "FbcLneuMH",
+                "hidden": false,
+                "nodes": [
+                  "TY8ZmNNLT"
+                ],
+                "linkedNodes": {}
+              },
+              "TY8ZmNNLT": {
+                "type": {
+                  "resolvedName": "DisplayText"
+                },
+                "isCanvas": false,
+                "props": {
+                  "type": "display",
+                  "padding": 8,
+                  "width": "100%",
+                  "height": "40px",
+                  "label": "Text",
+                  "visible": true,
+                  "justifyContent": "start",
+                  "alignTextItems": "start",
+                  "labelFontSize": "body1",
+                  "fontSize": "h5",
+                  "formElement": "Form2",
+                  "labelPosition": {
+                    "id": "null",
+                    "label": "None"
+                  },
+                  "target": {
+                    "dataPath": null
+                  },
+                  "dataPath": "non",
+                  "text": "Inbound Integration Models"
+                },
+                "displayName": "Text",
+                "custom": {
+                  "elementName": "Text8"
+                },
+                "parent": "0hXjMGU35t",
+                "hidden": false,
+                "nodes": [],
+                "linkedNodes": {}
+              },
+              "LDh3A-zzR": {
+                "type": {
+                  "resolvedName": "Table"
+                },
+                "isCanvas": true,
+                "props": {
+                  "margin": 0,
+                  "width": "100%",
+                  "height": "auto",
+                  "flexGrow": true,
+                  "query": {
+                    "api": "Application",
+                    "query": null,
+                    "dataPath": "edges",
+                    "dataTransform": {
+                      "transform": "[\nedges.node~>|$|{\n\n\"count\": $isNilOrEmpty(fuuzDataModel) ? \"---\" : fuuzDataModel.estimatedRecordCount\n}|\n]",
+                      "remote": true
+                    },
+                    "dataSubscription": {
+                      "enabled": true,
+                      "topics": [
+                        {
+                          "topic": "netSuite.integration"
+                        }
+                      ],
+                      "filterTransform": "$components.Table1.fn.search()"
+                    },
+                    "autoLoad": true,
+                    "fields": [
+                      "id",
+                      "configurationData",
+                      "fuuzDataModel.estimatedRecordCount",
+                      "active",
+                      "subscribed"
+                    ],
+                    "disableDataChangeIndicator": false,
+                    "selectedDataChangeIndicator": null,
+                    "model": "IntegrationModel",
+                    "parameters": "{\n  \"filter\": {\n    \"integrationId\": {\n      \"_eq\":id\n    },\n    \"outbound\": {\n      \"_eq\":false\n    }\n  },\n  \"orderBy\": {\n    \"field\": \"order\",\n    \"direction\":\"asc\"\n  }\n}"
+                  },
+                  "selectable": "none",
+                  "showToolPanels": false,
+                  "showStatusBar": false,
+                  "enableGrouping": false,
+                  "enableCharts": false,
+                  "showColumnMenu": false,
+                  "enableRowDragging": false,
+                  "disableColumnDragging": false,
+                  "disableDragLeaveHidesColumns": false,
+                  "masterDetail": true,
+                  "detailHeight": 300,
+                  "hideTableHeader": false,
+                  "fontSize": "18px",
+                  "description": "",
+                  "rowMultiSelectWithClick": false,
+                  "limitToOneActiveDetail": false
+                },
+                "displayName": "Table",
+                "custom": {
+                  "elementName": "Table1"
+                },
+                "parent": "3SJRxuAc2",
+                "hidden": false,
+                "nodes": [
+                  "StFIavVyE",
+                  "YthRxpwlw",
+                  "Xy2gEdE13q",
+                  "tyPaKPadm",
+                  "0aPdbAaeP",
+                  "vreDxVN1G",
+                  "Ozo2jGivV"
+                ],
+                "linkedNodes": {
+                  "Table1Detail": "6JviZOMFz"
+                }
+              },
+              "StFIavVyE": {
+                "type": {
+                  "resolvedName": "TableColumn"
+                },
+                "isCanvas": false,
+                "props": {
+                  "label": "Name",
+                  "format": "text",
+                  "dataPath": "name",
+                  "description": "",
+                  "field": "name"
+                },
+                "displayName": "Table Column",
+                "custom": {
+                  "elementName": "TableColumn1"
+                },
+                "parent": "LDh3A-zzR",
+                "hidden": false,
+                "nodes": [],
+                "linkedNodes": {}
+              },
+              "YthRxpwlw": {
+                "type": {
+                  "resolvedName": "TableColumn"
+                },
+                "isCanvas": false,
+                "props": {
+                  "label": "Order",
+                  "format": "text",
+                  "dataPath": "order",
+                  "description": "",
+                  "field": "order"
+                },
+                "displayName": "Table Column",
+                "custom": {
+                  "elementName": "TableColumn2"
+                },
+                "parent": "LDh3A-zzR",
+                "hidden": false,
+                "nodes": [],
+                "linkedNodes": {}
+              },
+              "Xy2gEdE13q": {
+                "type": {
+                  "resolvedName": "TableColumn"
+                },
+                "isCanvas": false,
+                "props": {
+                  "label": "Active",
+                  "format": "text",
+                  "dataPath": "a",
+                  "description": "",
+                  "field": "active",
+                  "query": {
+                    "fields": []
+                  },
+                  "style": {
+                    "__transform": "{\n\"color\":data.active ? \"#00ab00\" : \"#c00\",\n\"fontSize\": \"22px\"\n}",
+                    "__dynamicFields": {
+                      "payload": null,
+                      "context": []
+                    },
+                    "__cacheKey": "",
+                    "__remote": false
+                  },
+                  "data": {
+                    "__transform": "data.active ? \"✔ \" : \"✖\"",
+                    "__dynamicFields": {
+                      "payload": null,
+                      "context": []
+                    },
+                    "__cacheKey": "",
+                    "__remote": false
+                  }
+                },
+                "displayName": "Table Column",
+                "custom": {
+                  "elementName": "TableColumn3"
+                },
+                "parent": "LDh3A-zzR",
+                "hidden": false,
+                "nodes": [],
+                "linkedNodes": {}
+              },
+              "tyPaKPadm": {
+                "type": {
+                  "resolvedName": "TableColumn"
+                },
+                "isCanvas": false,
+                "props": {
+                  "label": "Subscribed",
+                  "format": "text",
+                  "dataPath": "s",
+                  "description": "",
+                  "field": "subscribed",
+                  "query": {
+                    "fields": []
+                  },
+                  "data": {
+                    "__transform": "data.subscribed ? \"✔ \" : \"✖\"",
+                    "__dynamicFields": {
+                      "payload": null,
+                      "context": []
+                    },
+                    "__cacheKey": "",
+                    "__remote": false
+                  },
+                  "style": {
+                    "__transform": "{\n\"color\":data.subscribed ? \"#00ab00\" : \"#c00\",\n\"fontSize\":\"22px\"\n}",
+                    "__dynamicFields": {
+                      "payload": null,
+                      "context": []
+                    },
+                    "__cacheKey": "",
+                    "__remote": false
+                  }
+                },
+                "displayName": "Table Column",
+                "custom": {
+                  "elementName": "TableColumn4"
+                },
+                "parent": "LDh3A-zzR",
+                "hidden": false,
+                "nodes": [],
+                "linkedNodes": {}
+              },
+              "0aPdbAaeP": {
+                "type": {
+                  "resolvedName": "TableColumn"
+                },
+                "isCanvas": false,
+                "props": {
+                  "label": "Fuuz Record Count",
+                  "format": "text",
+                  "dataPath": "count",
+                  "query": {
+                    "fields": []
+                  }
+                },
+                "displayName": "Table Column",
+                "custom": {
+                  "elementName": "TableColumn5"
+                },
+                "parent": "LDh3A-zzR",
+                "hidden": false,
+                "nodes": [],
+                "linkedNodes": {}
+              },
+              "vreDxVN1G": {
+                "type": {
+                  "resolvedName": "TableColumn"
+                },
+                "isCanvas": false,
+                "props": {
+                  "label": "Last Transaction At",
+                  "format": "datetime",
+                  "dataPath": "lastTransactionAt",
+                  "description": "",
+                  "field": "lastTransactionAt",
+                  "style": {
+                    "fontSize": "18px"
+                  },
+                  "query": {},
+                  "timeZone": "setting"
+                },
+                "displayName": "Table Column",
+                "custom": {
+                  "elementName": "TableColumn6"
+                },
+                "parent": "LDh3A-zzR",
+                "hidden": false,
+                "nodes": [],
+                "linkedNodes": {}
+              },
+              "3SJRxuAc2": {
+                "type": {
+                  "resolvedName": "Container"
+                },
+                "isCanvas": true,
+                "props": {
+                  "padding": 0,
+                  "margin": 0,
+                  "flexWrap": true,
+                  "flexDirection": "column",
+                  "justifyContent": "flex-start",
+                  "alignItems": "stretch",
+                  "width": "100%",
+                  "height": "auto",
+                  "hidden": false,
+                  "flexGrow": true,
+                  "shadow": false,
+                  "borderRadius": 0,
+                  "collapsible": false,
+                  "collapsedFooter": false,
+                  "collapsedSize": 0,
+                  "collapsedByDefault": false,
+                  "onClickTransform": false,
+                  "layout": "flex",
+                  "bordersInput": {},
+                  "justifyItems": "start",
+                  "style": {}
+                },
+                "displayName": "Container",
+                "custom": {
+                  "elementName": "Container14"
+                },
+                "parent": "APo06ZDQ6",
+                "hidden": false,
+                "nodes": [
+                  "MtftxYhVC",
+                  "LDh3A-zzR"
+                ],
+                "linkedNodes": {}
+              },
+              "clt2fflmc0013356lqlc4zm6a": {
+                "type": {
+                  "resolvedName": "Container"
+                },
+                "isCanvas": true,
+                "props": {
+                  "padding": 0,
+                  "margin": 0,
+                  "flexWrap": true,
+                  "flexDirection": "column",
+                  "justifyContent": "flex-start",
+                  "alignItems": "stretch",
+                  "width": "100%",
+                  "height": "auto",
+                  "hidden": false,
+                  "flexGrow": true,
+                  "shadow": false,
+                  "borderRadius": 0,
+                  "collapsible": false,
+                  "collapsedFooter": false,
+                  "collapsedSize": 0,
+                  "collapsedByDefault": false,
+                  "onClickTransform": false,
+                  "layout": "flex",
+                  "bordersInput": {},
+                  "justifyItems": "start",
+                  "style": {}
+                },
+                "displayName": "Container",
+                "custom": {
+                  "elementName": "Container17"
+                },
+                "parent": "42ojUX9A6",
+                "hidden": false,
+                "nodes": [
+                  "clt2fflmc0014356ln8nwi0l6",
+                  "clt2fflmd0019356lcyez5486"
+                ],
+                "linkedNodes": {}
+              },
+              "clt2fflmc0014356ln8nwi0l6": {
+                "type": {
+                  "resolvedName": "Container"
+                },
+                "isCanvas": true,
+                "props": {
+                  "padding": 0,
+                  "margin": 0,
+                  "flexWrap": true,
+                  "flexDirection": "row",
+                  "justifyContent": "flex-end",
+                  "alignItems": "center",
+                  "width": "100%",
+                  "height": "auto",
+                  "hidden": false,
+                  "flexGrow": false,
+                  "shadow": false,
+                  "borderRadius": 0,
+                  "collapsible": false,
+                  "collapsedFooter": false,
+                  "collapsedSize": 0,
+                  "collapsedByDefault": false,
+                  "onClickTransform": false,
+                  "layout": "flex",
+                  "bordersInput": {
+                    "borderMode": "full",
+                    "border": "0px solid #838383"
+                  },
+                  "justifyItems": "start",
+                  "style": {},
+                  "background": "paper"
+                },
+                "displayName": "Container",
+                "custom": {
+                  "elementName": "Container16"
+                },
+                "parent": "clt2fflmc0013356lqlc4zm6a",
+                "hidden": false,
+                "nodes": [
+                  "clt2fflmd0016356l95weeojr",
+                  "clt2fflmc0015356lwpbrpkve"
+                ],
+                "linkedNodes": {}
+              },
+              "clt2fflmc0015356lwpbrpkve": {
+                "type": {
+                  "resolvedName": "ActionButton"
+                },
+                "isCanvas": false,
+                "props": {
+                  "margin": 6,
+                  "buttonColor": "primary",
+                  "icon": {
+                    "icon": "magnifying-glass",
+                    "color": "primary",
+                    "variant": "light",
+                    "size": "xlarge"
+                  },
+                  "width": "60px",
+                  "height": "60px",
+                  "disabled": false,
+                  "hidden": false,
+                  "useIconButton": true,
+                  "disableHover": false,
+                  "disableRipple": false,
+                  "action": [
+                    {
+                      "type": "transformation",
+                      "transformation": "$components.Table2.fn.search()"
+                    }
+                  ],
+                  "title": "Refresh"
+                },
+                "displayName": "Action Button",
+                "custom": {
+                  "elementName": "ActionButton5"
+                },
+                "parent": "clt2fflmc0014356ln8nwi0l6",
+                "hidden": false,
+                "nodes": [],
+                "linkedNodes": {}
+              },
+              "clt2fflmd0016356l95weeojr": {
+                "type": {
+                  "resolvedName": "Form"
+                },
+                "isCanvas": true,
+                "props": {
+                  "query": {
+                    "api": "Application",
+                    "query": null,
+                    "dataPath": "edges[0]",
+                    "dataTransform": {
+                      "transform": "{}",
+                      "remote": true
+                    },
+                    "dataSubscription": {
+                      "enabled": false
+                    },
+                    "autoLoad": true,
+                    "parameters": "{\n  \"filter\": {\n    \"id\": {\n      \"_eq\": \"NetSuite\"\n    }\n  },\n  \"first\": 1\n}",
+                    "fields": [
+                      "id"
+                    ],
+                    "disableDataChangeIndicator": false
+                  },
+                  "blockNavigationWhenDirty": true
+                },
+                "displayName": "Form",
+                "custom": {
+                  "elementName": "Form3"
+                },
+                "parent": "clt2fflmc0014356ln8nwi0l6",
+                "hidden": false,
+                "nodes": [
+                  "clt2fflmd0017356ljjsv1osl"
+                ],
+                "linkedNodes": {}
+              },
+              "clt2fflmd0017356ljjsv1osl": {
+                "type": {
+                  "resolvedName": "Container"
+                },
+                "isCanvas": true,
+                "props": {
+                  "padding": 8,
+                  "margin": 8,
+                  "flexWrap": false,
+                  "flexDirection": "row",
+                  "justifyContent": "flex-start",
+                  "alignItems": "stretch",
+                  "width": "100%",
+                  "height": "auto",
+                  "hidden": false,
+                  "flexGrow": false,
+                  "shadow": false,
+                  "borderRadius": 0,
+                  "collapsible": false,
+                  "collapsedFooter": false,
+                  "collapsedSize": 0,
+                  "collapsedByDefault": false,
+                  "onClickTransform": false,
+                  "layout": "flex",
+                  "bordersInput": {},
+                  "justifyItems": "start",
+                  "style": {},
+                  "background": "paper"
+                },
+                "displayName": "Container",
+                "custom": {
+                  "elementName": "Container15"
+                },
+                "parent": "clt2fflmd0016356l95weeojr",
+                "hidden": false,
+                "nodes": [
+                  "clt2fflmd0018356l55ot6xys"
+                ],
+                "linkedNodes": {}
+              },
+              "clt2fflmd0018356l55ot6xys": {
+                "type": {
+                  "resolvedName": "DisplayText"
+                },
+                "isCanvas": false,
+                "props": {
+                  "type": "display",
+                  "padding": 8,
+                  "width": "100%",
+                  "height": "40px",
+                  "label": "Text",
+                  "visible": true,
+                  "justifyContent": "start",
+                  "alignTextItems": "start",
+                  "labelFontSize": "body1",
+                  "fontSize": "h5",
+                  "formElement": "Form3",
+                  "labelPosition": {
+                    "id": "null",
+                    "label": "None"
+                  },
+                  "target": {
+                    "dataPath": null
+                  },
+                  "dataPath": "non",
+                  "text": "Outbound Integration Models"
+                },
+                "displayName": "Text",
+                "custom": {
+                  "elementName": "Text9"
+                },
+                "parent": "clt2fflmd0017356ljjsv1osl",
+                "hidden": false,
+                "nodes": [],
+                "linkedNodes": {}
+              },
+              "clt2fflmd0019356lcyez5486": {
+                "type": {
+                  "resolvedName": "Table"
+                },
+                "isCanvas": true,
+                "props": {
+                  "margin": 0,
+                  "width": "100%",
+                  "height": "auto",
+                  "flexGrow": true,
+                  "query": {
+                    "api": "Application",
+                    "query": null,
+                    "dataPath": "edges",
+                    "dataTransform": {
+                      "transform": "[\nedges.node~>|$|{\n\n\"count\": $isNilOrEmpty(fuuzDataModel) ? \"---\" : fuuzDataModel.estimatedRecordCount\n}|\n]",
+                      "remote": true
+                    },
+                    "dataSubscription": {
+                      "enabled": false,
+                      "topics": []
+                    },
+                    "autoLoad": true,
+                    "fields": [
+                      "id",
+                      "configurationData",
+                      "fuuzDataModel.estimatedRecordCount",
+                      "active",
+                      "subscribed"
+                    ],
+                    "disableDataChangeIndicator": false,
+                    "selectedDataChangeIndicator": null,
+                    "model": "IntegrationModel",
+                    "parameters": "{\n  \"filter\": {\n    \"integrationId\": {\n      \"_eq\":\"NetSuite\"\n    },\n    \"outbound\": {\n      \"_eq\":true\n    }\n  },\n  \"orderBy\": {\n    \"field\": \"order\",\n    \"direction\":\"asc\"\n  }\n}"
+                  },
+                  "selectable": "none",
+                  "showToolPanels": false,
+                  "showStatusBar": false,
+                  "enableGrouping": false,
+                  "enableCharts": false,
+                  "showColumnMenu": false,
+                  "enableRowDragging": false,
+                  "disableColumnDragging": false,
+                  "disableDragLeaveHidesColumns": false,
+                  "masterDetail": false,
+                  "hideTableHeader": false,
+                  "fontSize": "18px",
+                  "description": "",
+                  "rowMultiSelectWithClick": false,
+                  "limitToOneActiveDetail": false
+                },
+                "displayName": "Table",
+                "custom": {
+                  "elementName": "Table2"
+                },
+                "parent": "clt2fflmc0013356lqlc4zm6a",
+                "hidden": false,
+                "nodes": [
+                  "clt2fflmd001a356l3wda3u3g",
+                  "clt2fflmd001b356lsclacjhv",
+                  "clt2fflme001c356ll8137dsd",
+                  "clt2fflme001e356lkd972a8b",
+                  "clt2fflme001f356lwpv7dp09"
+                ],
+                "linkedNodes": {}
+              },
+              "clt2fflmd001a356l3wda3u3g": {
+                "type": {
+                  "resolvedName": "TableColumn"
+                },
+                "isCanvas": false,
+                "props": {
+                  "label": "Name",
+                  "format": "text",
+                  "dataPath": "name",
+                  "description": "",
+                  "field": "name"
+                },
+                "displayName": "Table Column",
+                "custom": {
+                  "elementName": "TableColumn7"
+                },
+                "parent": "clt2fflmd0019356lcyez5486",
+                "hidden": false,
+                "nodes": [],
+                "linkedNodes": {}
+              },
+              "clt2fflmd001b356lsclacjhv": {
+                "type": {
+                  "resolvedName": "TableColumn"
+                },
+                "isCanvas": false,
+                "props": {
+                  "label": "Order",
+                  "format": "text",
+                  "dataPath": "order",
+                  "description": "",
+                  "field": "order"
+                },
+                "displayName": "Table Column",
+                "custom": {
+                  "elementName": "TableColumn8"
+                },
+                "parent": "clt2fflmd0019356lcyez5486",
+                "hidden": false,
+                "nodes": [],
+                "linkedNodes": {}
+              },
+              "clt2fflme001c356ll8137dsd": {
+                "type": {
+                  "resolvedName": "TableColumn"
+                },
+                "isCanvas": false,
+                "props": {
+                  "label": "Active",
+                  "format": "text",
+                  "dataPath": "a",
+                  "description": "",
+                  "field": "active",
+                  "query": {
+                    "fields": []
+                  },
+                  "style": {
+                    "__transform": "{\n\"color\":data.active ? \"#00ab00\" : \"#c00\",\n\"fontSize\": \"22px\"\n}",
+                    "__dynamicFields": {
+                      "payload": null,
+                      "context": []
+                    },
+                    "__cacheKey": "",
+                    "__remote": false
+                  },
+                  "data": {
+                    "__transform": "data.active ? \"✔ \" : \"✖\"",
+                    "__dynamicFields": {
+                      "payload": null,
+                      "context": []
+                    },
+                    "__cacheKey": "",
+                    "__remote": false
+                  }
+                },
+                "displayName": "Table Column",
+                "custom": {
+                  "elementName": "TableColumn9"
+                },
+                "parent": "clt2fflmd0019356lcyez5486",
+                "hidden": false,
+                "nodes": [],
+                "linkedNodes": {}
+              },
+              "clt2fflme001e356lkd972a8b": {
+                "type": {
+                  "resolvedName": "TableColumn"
+                },
+                "isCanvas": false,
+                "props": {
+                  "label": "Fuuz Record Count",
+                  "format": "text",
+                  "dataPath": "count",
+                  "query": {
+                    "fields": []
+                  }
+                },
+                "displayName": "Table Column",
+                "custom": {
+                  "elementName": "TableColumn11"
+                },
+                "parent": "clt2fflmd0019356lcyez5486",
+                "hidden": false,
+                "nodes": [],
+                "linkedNodes": {}
+              },
+              "clt2fflme001f356lwpv7dp09": {
+                "type": {
+                  "resolvedName": "TableColumn"
+                },
+                "isCanvas": false,
+                "props": {
+                  "label": "Last Transaction At",
+                  "format": "datetime",
+                  "dataPath": "lastTransactionAt",
+                  "description": "",
+                  "field": "lastTransactionAt",
+                  "style": {
+                    "fontSize": "18px"
+                  },
+                  "query": {},
+                  "timeZone": "setting"
+                },
+                "displayName": "Table Column",
+                "custom": {
+                  "elementName": "TableColumn12"
+                },
+                "parent": "clt2fflmd0019356lcyez5486",
+                "hidden": false,
+                "nodes": [],
+                "linkedNodes": {}
+              },
+              "clt2fhmp0002h356lj20pyha8": {
+                "type": {
+                  "resolvedName": "ActionButton"
+                },
+                "isCanvas": false,
+                "props": {
+                  "margin": 6,
+                  "buttonColor": "primary",
+                  "icon": {
+                    "icon": "magnifying-glass",
+                    "color": "primary",
+                    "variant": "light",
+                    "size": "xlarge"
+                  },
+                  "width": "60px",
+                  "height": "60px",
+                  "disabled": false,
+                  "hidden": false,
+                  "useIconButton": true,
+                  "disableHover": false,
+                  "disableRipple": false,
+                  "action": [
+                    {
+                      "type": "transformation",
+                      "transformation": "$components.Table1.fn.search()"
+                    }
+                  ],
+                  "title": "Refresh"
+                },
+                "displayName": "Action Button",
+                "custom": {
+                  "elementName": "ActionButton7"
+                },
+                "parent": "MtftxYhVC",
+                "hidden": false,
+                "nodes": [],
+                "linkedNodes": {}
+              },
+              "glUGqULhvr": {
+                "type": {
+                  "resolvedName": "Container"
+                },
+                "isCanvas": true,
+                "props": {
+                  "padding": 0,
+                  "margin": 0,
+                  "flexWrap": true,
+                  "flexDirection": "column",
+                  "justifyContent": "flex-start",
+                  "alignItems": "stretch",
+                  "width": "100%",
+                  "height": "100%",
+                  "hidden": false,
+                  "flexGrow": false,
+                  "shadow": false,
+                  "borderRadius": 0,
+                  "collapsible": false,
+                  "collapsedFooter": false,
+                  "collapsedSize": 0,
+                  "collapsedByDefault": false,
+                  "onClickTransform": false,
+                  "layout": "flex",
+                  "bordersInput": {},
+                  "justifyItems": "start",
+                  "style": {},
+                  "lockSize": true
+                },
+                "displayName": "Container",
+                "custom": {
+                  "elementName": "TabBarDetail2"
+                },
+                "parent": "iHf4ROApd",
+                "hidden": false,
+                "nodes": [
+                  "RuGxz1Cqw"
+                ],
+                "linkedNodes": {}
+              },
+              "RuGxz1Cqw": {
+                "type": {
+                  "resolvedName": "Container"
+                },
+                "isCanvas": true,
+                "props": {
+                  "padding": 0,
+                  "margin": 0,
+                  "flexWrap": true,
+                  "flexDirection": "column",
+                  "justifyContent": "flex-start",
+                  "alignItems": "stretch",
+                  "width": "100%",
+                  "height": "auto",
+                  "hidden": false,
+                  "flexGrow": true,
+                  "shadow": false,
+                  "borderRadius": 0,
+                  "collapsible": false,
+                  "collapsedFooter": false,
+                  "collapsedSize": 0,
+                  "collapsedByDefault": false,
+                  "onClickTransform": false,
+                  "layout": "flex",
+                  "bordersInput": {},
+                  "justifyItems": "start",
+                  "style": {}
+                },
+                "displayName": "Container",
+                "custom": {
+                  "elementName": "Container18"
+                },
+                "parent": "glUGqULhvr",
+                "hidden": false,
+                "nodes": [
+                  "clt2h09k9005j356lznpmm2dg",
+                  "4MKky-Vrp"
+                ],
+                "linkedNodes": {}
+              },
+              "4MKky-Vrp": {
+                "type": {
+                  "resolvedName": "Table"
+                },
+                "isCanvas": true,
+                "props": {
+                  "margin": 0,
+                  "width": "100%",
+                  "height": "auto",
+                  "flexGrow": true,
+                  "query": {
+                    "api": "Application",
+                    "query": null,
+                    "dataPath": "edges",
+                    "dataTransform": {
+                      "transform": null,
+                      "remote": true
+                    },
+                    "dataSubscription": {
+                      "enabled": false
+                    },
+                    "autoLoad": true,
+                    "fields": [
+                      "id",
+                      "status.color"
+                    ],
+                    "disableDataChangeIndicator": false,
+                    "selectedDataChangeIndicator": null,
+                    "model": "IntegrationTransaction"
+                  },
+                  "selectable": "none",
+                  "showToolPanels": true,
+                  "showStatusBar": true,
+                  "enableGrouping": false,
+                  "enableCharts": false,
+                  "showColumnMenu": false,
+                  "enableRowDragging": false,
+                  "disableColumnDragging": false,
+                  "disableDragLeaveHidesColumns": false,
+                  "masterDetail": false,
+                  "detailHeight": 300,
+                  "hideTableHeader": false,
+                  "description": "",
+                  "fontSize": "18px",
+                  "filterFormName": "TrxForm",
+                  "rowMultiSelectWithClick": false,
+                  "views": [
+                    {
+                      "unique": false,
+                      "fields": [],
+                      "name": "MES",
+                      "isDefault": true,
+                      "columns": [
+                        {
+                          "id": "TableColumn13",
+                          "label": "Integration Model"
+                        },
+                        {
+                          "id": "TableColumn14",
+                          "label": "Occur At"
+                        },
+                        {
+                          "id": "TableColumn15",
+                          "label": "Complete At"
+                        },
+                        {
+                          "id": "TableColumn16",
+                          "label": "Status"
+                        },
+                        {
+                          "id": "TableColumn20",
+                          "label": "Edit"
+                        },
+                        {
+                          "id": "TableColumn21",
+                          "label": "Retry"
+                        }
+                      ]
+                    }
+                  ],
+                  "defaultSort": [
+                    {
+                      "field": "TableColumn14",
+                      "direction": "desc"
+                    }
+                  ],
+                  "limitToOneActiveDetail": false
+                },
+                "displayName": "Table",
+                "custom": {
+                  "elementName": "TrxTable"
+                },
+                "parent": "RuGxz1Cqw",
+                "hidden": false,
+                "nodes": [
+                  "dOmJYBXD6",
+                  "TbC6PsWJu",
+                  "clt2hvnhj00hn356l01sp2qr5",
+                  "vz8nAVYcs",
+                  "lydaDBU-9",
+                  "gPQTvVCza",
+                  "U4BzByH1N"
+                ],
+                "linkedNodes": {
+                  "TrxTableDetail": "JrXIJN8u1"
+                }
+              },
+              "clt2h09k9005j356lznpmm2dg": {
+                "type": {
+                  "resolvedName": "Container"
+                },
+                "isCanvas": true,
+                "props": {
+                  "padding": 0,
+                  "margin": 0,
+                  "flexWrap": true,
+                  "flexDirection": "row",
+                  "justifyContent": "flex-end",
+                  "alignItems": "center",
+                  "width": "100%",
+                  "height": "auto",
+                  "hidden": false,
+                  "flexGrow": false,
+                  "shadow": false,
+                  "borderRadius": 0,
+                  "collapsible": false,
+                  "collapsedFooter": false,
+                  "collapsedSize": 0,
+                  "collapsedByDefault": false,
+                  "onClickTransform": false,
+                  "layout": "flex",
+                  "bordersInput": {
+                    "borderMode": "full",
+                    "border": "0px solid #838383"
+                  },
+                  "justifyItems": "start",
+                  "style": {},
+                  "background": "paper"
+                },
+                "displayName": "Container",
+                "custom": {
+                  "elementName": "Container20"
+                },
+                "parent": "RuGxz1Cqw",
+                "hidden": false,
+                "nodes": [
+                  "clt2h09k9005k356lyllqf1vu",
+                  "clt2h09kb005o356lwwy09s0u"
+                ],
+                "linkedNodes": {}
+              },
+              "clt2h09k9005k356lyllqf1vu": {
+                "type": {
+                  "resolvedName": "Form"
+                },
+                "isCanvas": true,
+                "props": {
+                  "query": {
+                    "api": "Application",
+                    "query": null,
+                    "dataPath": "edges[0]",
+                    "dataTransform": {
+                      "transform": "{}",
+                      "remote": true
+                    },
+                    "dataSubscription": {
+                      "enabled": false
+                    },
+                    "autoLoad": false,
+                    "parameters": "{\n  \"filter\": {\n    \"id\": {\n      \"_eq\": \"NetSuite\"\n    }\n  },\n  \"first\": 1\n}",
+                    "fields": [
+                      "id"
+                    ],
+                    "disableDataChangeIndicator": false,
+                    "model": "IntegrationTransaction"
+                  },
+                  "blockNavigationWhenDirty": true,
+                  "description": ""
+                },
+                "displayName": "Form",
+                "custom": {
+                  "elementName": "TrxForm"
+                },
+                "parent": "clt2h09k9005j356lznpmm2dg",
+                "hidden": false,
+                "nodes": [
+                  "clt2h09k9005l356lsu2hn488"
+                ],
+                "linkedNodes": {}
+              },
+              "clt2h09k9005l356lsu2hn488": {
+                "type": {
+                  "resolvedName": "Container"
+                },
+                "isCanvas": true,
+                "props": {
+                  "padding": 8,
+                  "margin": 8,
+                  "flexWrap": false,
+                  "flexDirection": "row",
+                  "justifyContent": "flex-start",
+                  "alignItems": "center",
+                  "width": "auto",
+                  "height": "auto",
+                  "hidden": false,
+                  "flexGrow": false,
+                  "shadow": false,
+                  "borderRadius": 0,
+                  "collapsible": false,
+                  "collapsedFooter": false,
+                  "collapsedSize": 0,
+                  "collapsedByDefault": false,
+                  "onClickTransform": false,
+                  "layout": "flex",
+                  "bordersInput": {},
+                  "justifyItems": "start",
+                  "style": {},
+                  "background": "paper"
+                },
+                "displayName": "Container",
+                "custom": {
+                  "elementName": "Container19"
+                },
+                "parent": "clt2h09k9005k356lyllqf1vu",
+                "hidden": false,
+                "nodes": [
+                  "clt2h09k9005m356lcxys9lg9",
+                  "ozaDTRDaI",
+                  "q9Xz6Cn5k"
+                ],
+                "linkedNodes": {}
+              },
+              "clt2h09k9005m356lcxys9lg9": {
+                "type": {
+                  "resolvedName": "DisplayText"
+                },
+                "isCanvas": false,
+                "props": {
+                  "type": "display",
+                  "padding": 8,
+                  "width": "300px",
+                  "height": "40px",
+                  "label": "Text",
+                  "visible": true,
+                  "justifyContent": "start",
+                  "alignTextItems": "start",
+                  "labelFontSize": "body1",
+                  "fontSize": "h5",
+                  "formElement": "TrxForm",
+                  "labelPosition": {
+                    "id": "null",
+                    "label": "None"
+                  },
+                  "target": {
+                    "dataPath": null
+                  },
+                  "dataPath": "non",
+                  "text": "Integration Transactions"
+                },
+                "displayName": "Text",
+                "custom": {
+                  "elementName": "Text10"
+                },
+                "parent": "clt2h09k9005l356lsu2hn488",
+                "hidden": false,
+                "nodes": [],
+                "linkedNodes": {}
+              },
+              "clt2h09kb005o356lwwy09s0u": {
+                "type": {
+                  "resolvedName": "ActionButton"
+                },
+                "isCanvas": false,
+                "props": {
+                  "margin": 6,
+                  "buttonColor": "primary",
+                  "icon": {
+                    "icon": "magnifying-glass",
+                    "color": "primary",
+                    "variant": "light",
+                    "size": "xlarge"
+                  },
+                  "width": "60px",
+                  "height": "60px",
+                  "disabled": false,
+                  "hidden": false,
+                  "useIconButton": true,
+                  "disableHover": false,
+                  "disableRipple": false,
+                  "action": [
+                    {
+                      "type": "transformation",
+                      "transformation": "$components.TrxTable.fn.search()"
+                    }
+                  ],
+                  "title": "Refresh"
+                },
+                "displayName": "Action Button",
+                "custom": {
+                  "elementName": "ActionButton9"
+                },
+                "parent": "clt2h09k9005j356lznpmm2dg",
+                "hidden": false,
+                "nodes": [],
+                "linkedNodes": {}
+              },
+              "ozaDTRDaI": {
+                "type": {
+                  "resolvedName": "Combobox"
+                },
+                "isCanvas": false,
+                "props": {
+                  "type": "combobox",
+                  "padding": 8,
+                  "width": "400px",
+                  "height": "auto",
+                  "label": "Integration Model",
+                  "multiselect": true,
+                  "isClearable": true,
+                  "api": "Application",
+                  "validation": {
+                    "required": false
+                  },
+                  "visible": true,
+                  "formElement": "Form4",
+                  "target": {
+                    "dataPath": "modelId._in"
+                  },
+                  "dataPath": "model",
+                  "labelField": "name",
+                  "labelPath": "name",
+                  "orderByField": "name",
+                  "query": {
+                    "fields": [
+                      "model.id",
+                      "model.name"
+                    ]
+                  },
+                  "queryType": "IntegrationModel"
+                },
+                "displayName": "Combobox",
+                "custom": {
+                  "elementName": "Combobox1"
+                },
+                "parent": "clt2h09k9005l356lsu2hn488",
+                "hidden": false,
+                "nodes": [],
+                "linkedNodes": {}
+              },
+              "q9Xz6Cn5k": {
+                "type": {
+                  "resolvedName": "DateRangeInput"
+                },
+                "isCanvas": false,
+                "props": {
+                  "type": "datetimeRange",
+                  "padding": 8,
+                  "width": "400px",
+                  "height": "auto",
+                  "label": "DateRange",
+                  "validation": {
+                    "required": false
+                  },
+                  "visible": true,
+                  "formElement": "Form4",
+                  "defaultValue": {
+                    "data": {
+                      "unit": "week",
+                      "offset": 0,
+                      "range": 1,
+                      "base": "startOf"
+                    },
+                    "label": "This week"
+                  },
+                  "target": {
+                    "dataPath": null
+                  },
+                  "dataPath": "occurAt"
+                },
+                "displayName": "Date Range",
+                "custom": {
+                  "elementName": "DateRange1"
+                },
+                "parent": "clt2h09k9005l356lsu2hn488",
+                "hidden": false,
+                "nodes": [],
+                "linkedNodes": {}
+              },
+              "dOmJYBXD6": {
+                "type": {
+                  "resolvedName": "TableColumn"
+                },
+                "isCanvas": false,
+                "props": {
+                  "label": "Integration Model",
+                  "format": "text",
+                  "dataPath": "model.name",
+                  "field": "model.name"
+                },
+                "displayName": "Table Column",
+                "custom": {
+                  "elementName": "TableColumn13"
+                },
+                "parent": "4MKky-Vrp",
+                "hidden": false,
+                "nodes": [],
+                "linkedNodes": {}
+              },
+              "TbC6PsWJu": {
+                "type": {
+                  "resolvedName": "TableColumn"
+                },
+                "isCanvas": false,
+                "props": {
+                  "label": "Occur At",
+                  "format": "datetime",
+                  "dataPath": "occurAt",
+                  "description": "",
+                  "field": "occurAt",
+                  "style": {
+                    "fontSize": "18px"
+                  },
+                  "query": {}
+                },
+                "displayName": "Table Column",
+                "custom": {
+                  "elementName": "TableColumn14"
+                },
+                "parent": "4MKky-Vrp",
+                "hidden": false,
+                "nodes": [],
+                "linkedNodes": {}
+              },
+              "clt2hvnhj00hn356l01sp2qr5": {
+                "type": {
+                  "resolvedName": "TableColumn"
+                },
+                "isCanvas": false,
+                "props": {
+                  "label": "Complete At",
+                  "format": "datetime",
+                  "dataPath": "completeAt",
+                  "description": "",
+                  "field": "completeAt",
+                  "style": {
+                    "fontSize": "18px"
+                  },
+                  "query": {}
+                },
+                "displayName": "Table Column",
+                "custom": {
+                  "elementName": "TableColumn15"
+                },
+                "parent": "4MKky-Vrp",
+                "hidden": false,
+                "nodes": [],
+                "linkedNodes": {}
+              },
+              "vz8nAVYcs": {
+                "type": {
+                  "resolvedName": "TableColumn"
+                },
+                "isCanvas": false,
+                "props": {
+                  "label": "Status",
+                  "format": "text",
+                  "dataPath": "status.name",
+                  "field": "status.name",
+                  "style": {
+                    "__transform": "{\n\"background\":data.status.color\n}",
+                    "__dynamicFields": {
+                      "payload": [
+                        "data.status.color"
+                      ],
+                      "context": []
+                    },
+                    "__cacheKey": "",
+                    "__remote": false
+                  }
+                },
+                "displayName": "Table Column",
+                "custom": {
+                  "elementName": "TableColumn16"
+                },
+                "parent": "4MKky-Vrp",
+                "hidden": false,
+                "nodes": [],
+                "linkedNodes": {}
+              },
+              "JrXIJN8u1": {
+                "type": {
+                  "resolvedName": "Container"
+                },
+                "isCanvas": true,
+                "props": {
+                  "padding": 0,
+                  "margin": 0,
+                  "flexWrap": true,
+                  "flexDirection": "column",
+                  "justifyContent": "flex-start",
+                  "alignItems": "stretch",
+                  "width": "100%",
+                  "height": "100%",
+                  "hidden": false,
+                  "flexGrow": false,
+                  "shadow": false,
+                  "borderRadius": 0,
+                  "collapsible": false,
+                  "collapsedFooter": false,
+                  "collapsedSize": 0,
+                  "collapsedByDefault": false,
+                  "onClickTransform": false,
+                  "layout": "flex",
+                  "bordersInput": {},
+                  "justifyItems": "start",
+                  "style": {},
+                  "lockSize": true
+                },
+                "displayName": "Container",
+                "custom": {
+                  "elementName": "TrxTableDetail"
+                },
+                "parent": "4MKky-Vrp",
+                "hidden": false,
+                "nodes": [],
+                "linkedNodes": {}
+              },
+              "lydaDBU-9": {
+                "type": {
+                  "resolvedName": "TableColumn"
+                },
+                "isCanvas": false,
+                "props": {
+                  "label": "Id",
+                  "format": "text",
+                  "dataPath": "id",
+                  "description": "The primary unique ID of the record.  Every model should have an id field.",
+                  "field": "id"
+                },
+                "displayName": "Table Column",
+                "custom": {
+                  "elementName": "TableColumn19"
+                },
+                "parent": "4MKky-Vrp",
+                "hidden": false,
+                "nodes": [],
+                "linkedNodes": {}
+              },
+              "gPQTvVCza": {
+                "type": {
+                  "resolvedName": "TableColumn"
+                },
+                "isCanvas": false,
+                "props": {
+                  "label": "Edit",
+                  "format": "action",
+                  "dataPath": "edit",
+                  "description": "The primary unique ID of the record.  Every model should have an id field.",
+                  "field": "id",
+                  "query": {
+                    "fields": []
+                  },
+                  "actions": [
+                    {
+                      "title": "Edit Transaction",
+                      "useIconButton": true,
+                      "icon": {
+                        "icon": "pen",
+                        "color": "secondary",
+                        "variant": "light",
+                        "size": "icon"
+                      },
+                      "disabled": {
+                        "__transform": "\"\"",
+                        "__dynamicFields": {
+                          "payload": null,
+                          "context": []
+                        },
+                        "__cacheKey": "",
+                        "__remote": false
+                      },
+                      "action": [
+                        {
+                          "type": "query",
+                          "api": "Application",
+                          "query": "query Query($where: IntegrationTransactionWhereInput, $orderBy: [IntegrationTransactionOrderByInput!], $first: Int, $after: String) {\n  integrationTransaction(where: $where, orderBy: $orderBy, first: $first, after: $after) {\n    edges {\n      node {\n        id\n        number\n        outbound\n        externalId\n        completeAt\n        occurAt\n        metadata\n        request\n        response\n        status {\n          id\n          name\n        }\n        model {\n          id\n          name\n        }\n      }\n    }\n  }\n}\n",
+                          "transforms": {
+                            "pre": "{\n\"where\": {\n  \"id\": {\n    \"_in\": [$$.rowData.id]\n  }\n}\n}"
+                          }
+                        },
+                        {
+                          "type": "form",
+                          "title": {
+                            "__transform": "\"Edit Transaction Request\""
+                          },
+                          "fields": [
+                            {
+                              "name": "number",
+                              "description": "",
+                              "label": "Number",
+                              "type": "text",
+                              "dataPath": "number",
+                              "validation": {
+                                "required": false
+                              },
+                              "query": {
+                                "fields": [
+                                  "number"
+                                ]
+                              },
+                              "disabled": true
+                            },
+                            {
+                              "name": "outbound",
+                              "description": "",
+                              "label": "Outbound",
+                              "type": "checkbox",
+                              "dataPath": "outbound",
+                              "validation": {
+                                "required": false
+                              },
+                              "defaultValue": true,
+                              "query": {
+                                "fields": [
+                                  "outbound"
+                                ]
+                              },
+                              "disabled": true
+                            },
+                            {
+                              "name": "externalId",
+                              "description": "",
+                              "label": "External Id",
+                              "type": "text",
+                              "dataPath": "externalId",
+                              "validation": {
+                                "required": false
+                              },
+                              "query": {
+                                "fields": [
+                                  "externalId"
+                                ]
+                              },
+                              "disabled": true
+                            },
+                            {
+                              "name": "completeAt",
+                              "description": "",
+                              "label": "Complete At",
+                              "type": "datetime",
+                              "dataPath": "completeAt",
+                              "validation": {
+                                "required": false
+                              },
+                              "query": {
+                                "fields": [
+                                  "completeAt"
+                                ]
+                              },
+                              "disabled": true
+                            },
+                            {
+                              "name": "occurAt",
+                              "description": "",
+                              "label": "Occur At",
+                              "type": "datetime",
+                              "dataPath": "occurAt",
+                              "validation": {
+                                "required": true
+                              },
+                              "query": {
+                                "fields": [
+                                  "occurAt"
+                                ]
+                              },
+                              "disabled": true
+                            },
+                            {
+                              "name": "metadata",
+                              "description": " ",
+                              "label": "Metadata",
+                              "type": "json",
+                              "dataPath": "metadata",
+                              "validation": {
+                                "required": false
+                              },
+                              "query": {
+                                "fields": [
+                                  "metadata"
+                                ]
+                              },
+                              "disabled": true
+                            },
+                            {
+                              "name": "request",
+                              "description": "",
+                              "label": "Request",
+                              "type": "json",
+                              "dataPath": "request",
+                              "validation": {
+                                "required": false
+                              },
+                              "query": {
+                                "fields": [
+                                  "request"
+                                ]
+                              }
+                            },
+                            {
+                              "name": "response",
+                              "description": "",
+                              "label": "Response",
+                              "type": "json",
+                              "dataPath": "response",
+                              "validation": {
+                                "required": false
+                              },
+                              "query": {
+                                "fields": [
+                                  "response"
+                                ]
+                              },
+                              "disabled": true
+                            },
+                            {
+                              "name": "status",
+                              "description": "",
+                              "label": "Status",
+                              "labelField": "name",
+                              "labelPath": "name",
+                              "additionalFields": "name",
+                              "type": "combobox",
+                              "dataPath": "status",
+                              "queryType": "IntegrationTransactionStatus",
+                              "target": {
+                                "dataPath": "statusId"
+                              },
+                              "api": "Application",
+                              "linkTarget": {
+                                "__transform": "\"/system/integration/integrationTransactionStatuses/\" & data.status.id"
+                              },
+                              "validation": {
+                                "required": true
+                              },
+                              "query": {
+                                "fields": [
+                                  "status.id",
+                                  "status.name"
+                                ]
+                              },
+                              "disabled": true
+                            },
+                            {
+                              "name": "model",
+                              "description": "",
+                              "label": "Model",
+                              "labelField": "name",
+                              "labelPath": "name",
+                              "additionalFields": "name",
+                              "type": "combobox",
+                              "dataPath": "model",
+                              "queryType": "IntegrationModel",
+                              "target": {
+                                "dataPath": "modelId"
+                              },
+                              "api": "Application",
+                              "linkTarget": {
+                                "__transform": "\"/system/integration/integrationModels/\" & data.model.id"
+                              },
+                              "validation": {
+                                "required": false
+                              },
+                              "query": {
+                                "fields": [
+                                  "model.id",
+                                  "model.name"
+                                ]
+                              },
+                              "disabled": true
+                            }
+                          ],
+                          "transforms": {
+                            "pre": "data.integrationTransaction.edges.node"
+                          }
+                        },
+                        {
+                          "type": "mutation",
+                          "api": "Application",
+                          "mutation": "mutation($p:[IntegrationTransactionUpdatePayloadInput!]!){\n  updateIntegrationTransaction(payload:$p){id}\n}",
+                          "message": {
+                            "__transform": "\"Integration Transaction Updated Successfully!\""
+                          },
+                          "transforms": {
+                            "pre": "{\n  \"p\": {\n    \"update\": $omit($$.data,'integrationTransaction'),\n    \"where\": {\n      \"id\": $$.rowData.id \n    }\n  }\n}",
+                            "post": "$components.TrxTable.fn.search()"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "displayName": "Table Column",
+                "custom": {
+                  "elementName": "TableColumn20"
+                },
+                "parent": "4MKky-Vrp",
+                "hidden": false,
+                "nodes": [],
+                "linkedNodes": {}
+              },
+              "U4BzByH1N": {
+                "type": {
+                  "resolvedName": "TableColumn"
+                },
+                "isCanvas": false,
+                "props": {
+                  "label": "Retry",
+                  "format": "action",
+                  "dataPath": "retry",
+                  "query": {
+                    "fields": []
+                  },
+                  "actions": [
+                    {
+                      "title": "Retry Transaction",
+                      "useIconButton": true,
+                      "icon": {
+                        "icon": "rotate-right",
+                        "color": "secondary",
+                        "variant": "light",
+                        "size": "icon"
+                      },
+                      "action": [
+                        {
+                          "type": "flow",
+                          "message": {
+                            "__transform": "\"Reprocessing Transaction\""
+                          },
+                          "transforms": {
+                            "pre": "{\n  \"REQUEST\": {\n    \"DATA\": {\n      \"id\": $$.rowData.id\n    },\n    \"ACTION\": \"RETRY\"\n  }\n}",
+                            "post": "$components.TrxTable.fn.search()"
+                          },
+                          "flowId": "netsuiteOutbound"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "displayName": "Table Column",
+                "custom": {
+                  "elementName": "TableColumn21"
+                },
+                "parent": "4MKky-Vrp",
+                "hidden": false,
+                "nodes": [],
+                "linkedNodes": {}
+              },
+              "6JviZOMFz": {
+                "type": {
+                  "resolvedName": "Container"
+                },
+                "isCanvas": true,
+                "props": {
+                  "padding": 0,
+                  "margin": 0,
+                  "flexWrap": true,
+                  "flexDirection": "column",
+                  "justifyContent": "flex-start",
+                  "alignItems": "stretch",
+                  "width": "100%",
+                  "height": "100%",
+                  "hidden": false,
+                  "flexGrow": false,
+                  "shadow": false,
+                  "borderRadius": 0,
+                  "collapsible": false,
+                  "collapsedFooter": false,
+                  "collapsedSize": 0,
+                  "collapsedByDefault": false,
+                  "onClickTransform": false,
+                  "layout": "flex",
+                  "bordersInput": {},
+                  "justifyItems": "start",
+                  "style": {},
+                  "lockSize": true
+                },
+                "displayName": "Container",
+                "custom": {
+                  "elementName": "Table1Detail"
+                },
+                "parent": "LDh3A-zzR",
+                "hidden": false,
+                "nodes": [
+                  "-duzCs9_C"
+                ],
+                "linkedNodes": {}
+              },
+              "-duzCs9_C": {
+                "type": {
+                  "resolvedName": "Table"
+                },
+                "isCanvas": true,
+                "props": {
+                  "margin": 8,
+                  "width": "100%",
+                  "height": "auto",
+                  "flexGrow": true,
+                  "query": {
+                    "api": "Application",
+                    "query": null,
+                    "dataPath": "edges",
+                    "dataTransform": {
+                      "transform": null,
+                      "remote": true
+                    },
+                    "dataSubscription": {
+                      "enabled": false
+                    },
+                    "autoLoad": true,
+                    "fields": [
+                      "id",
+                      "type.color"
+                    ],
+                    "disableDataChangeIndicator": false,
+                    "selectedDataChangeIndicator": null,
+                    "model": "IntegrationMessage",
+                    "parameters": "{\n  \"filter\": {\n    \"modelId\": {\n      \"_in\": [$parent.data.id]\n    }\n  },\n  \"orderBy\": {\n    \"field\": \"createdAt\", \"direction\":\"desc\"\n  },\n  \"first\":100\n}"
+                  },
+                  "selectable": "none",
+                  "showToolPanels": false,
+                  "showStatusBar": false,
+                  "enableGrouping": false,
+                  "enableCharts": false,
+                  "showColumnMenu": false,
+                  "enableRowDragging": false,
+                  "disableColumnDragging": false,
+                  "disableDragLeaveHidesColumns": false,
+                  "masterDetail": false,
+                  "hideTableHeader": false,
+                  "description": "",
+                  "fontSize": "18px",
+                  "rowMultiSelectWithClick": false,
+                  "limitToOneActiveDetail": false
+                },
+                "displayName": "Table",
+                "custom": {
+                  "elementName": "Table5"
+                },
+                "parent": "6JviZOMFz",
+                "hidden": false,
+                "nodes": [
+                  "fOd0JrQPG",
+                  "dy2d0oQeB",
+                  "TgqKlAnju"
+                ],
+                "linkedNodes": {}
+              },
+              "fOd0JrQPG": {
+                "type": {
+                  "resolvedName": "TableColumn"
+                },
+                "isCanvas": false,
+                "props": {
+                  "label": "Type",
+                  "format": "text",
+                  "dataPath": "type.name",
+                  "field": "type.name",
+                  "style": {
+                    "__transform": "{\n  \"background\": data.type.color\n}",
+                    "__dynamicFields": {
+                      "payload": [
+                        "data.type.color"
+                      ],
+                      "context": []
+                    },
+                    "__cacheKey": "",
+                    "__remote": false
+                  }
+                },
+                "displayName": "Table Column",
+                "custom": {
+                  "elementName": "TableColumn22"
+                },
+                "parent": "-duzCs9_C",
+                "hidden": false,
+                "nodes": [],
+                "linkedNodes": {}
+              },
+              "dy2d0oQeB": {
+                "type": {
+                  "resolvedName": "TableColumn"
+                },
+                "isCanvas": false,
+                "props": {
+                  "label": "Message",
+                  "format": "text",
+                  "dataPath": "message",
+                  "description": "",
+                  "field": "message",
+                  "width": "600px"
+                },
+                "displayName": "Table Column",
+                "custom": {
+                  "elementName": "TableColumn23"
+                },
+                "parent": "-duzCs9_C",
+                "hidden": false,
+                "nodes": [],
+                "linkedNodes": {}
+              },
+              "INvIwIMib": {
+                "type": {
+                  "resolvedName": "DisplayText"
+                },
+                "isCanvas": false,
+                "props": {
+                  "type": "display",
+                  "padding": 8,
+                  "width": "100%",
+                  "height": "auto",
+                  "label": "Text",
+                  "visible": true,
+                  "justifyContent": "start",
+                  "alignTextItems": "start",
+                  "labelFontSize": "body1",
+                  "fontSize": "h4",
+                  "formElement": "IntegrationForm",
+                  "target": {
+                    "dataPath": null
+                  },
+                  "dataPath": "message",
+                  "labelPosition": {
+                    "id": "null",
+                    "label": "None"
+                  },
+                  "query": {
+                    "fields": []
+                  }
+                },
+                "displayName": "Text",
+                "custom": {
+                  "elementName": "Text11"
+                },
+                "parent": "PPknDwXoF",
+                "hidden": false,
+                "nodes": [],
+                "linkedNodes": {}
+              },
+              "PjCjUP9V-": {
+                "type": {
+                  "resolvedName": "Container"
+                },
+                "isCanvas": true,
+                "props": {
+                  "padding": 0,
+                  "margin": 0,
+                  "flexWrap": true,
+                  "flexDirection": "row",
+                  "justifyContent": "flex-start",
+                  "alignItems": "stretch",
+                  "width": "auto",
+                  "height": "auto",
+                  "hidden": false,
+                  "flexGrow": true,
+                  "shadow": false,
+                  "borderRadius": 0,
+                  "collapsible": false,
+                  "collapsedFooter": false,
+                  "collapsedSize": 0,
+                  "collapsedByDefault": false,
+                  "onClickTransform": false,
+                  "layout": "flex",
+                  "bordersInput": {},
+                  "justifyItems": "start",
+                  "style": {}
+                },
+                "displayName": "Container",
+                "custom": {
+                  "elementName": "Container23"
+                },
+                "parent": "B2wNmP7u8h",
+                "hidden": false,
+                "nodes": [
+                  "g2mgi02c_",
+                  "PPknDwXoF"
+                ],
+                "linkedNodes": {}
+              },
+              "PPknDwXoF": {
+                "type": {
+                  "resolvedName": "Container"
+                },
+                "isCanvas": true,
+                "props": {
+                  "padding": 0,
+                  "margin": 0,
+                  "flexWrap": true,
+                  "flexDirection": "row",
+                  "justifyContent": "flex-start",
+                  "alignItems": "center",
+                  "width": "200px",
+                  "height": "auto",
+                  "hidden": false,
+                  "flexGrow": true,
+                  "shadow": false,
+                  "borderRadius": 0,
+                  "collapsible": false,
+                  "collapsedFooter": false,
+                  "collapsedSize": 0,
+                  "collapsedByDefault": false,
+                  "onClickTransform": false,
+                  "layout": "flex",
+                  "bordersInput": {},
+                  "justifyItems": "start",
+                  "style": {}
+                },
+                "displayName": "Container",
+                "custom": {
+                  "elementName": "Container24"
+                },
+                "parent": "PjCjUP9V-",
+                "hidden": false,
+                "nodes": [
+                  "INvIwIMib"
+                ],
+                "linkedNodes": {}
+              },
+              "Ozo2jGivV": {
+                "type": {
+                  "resolvedName": "TableColumn"
+                },
+                "isCanvas": false,
+                "props": {
+                  "label": "Sync",
+                  "format": "action",
+                  "dataPath": "id",
+                  "width": "80px",
+                  "query": {},
+                  "actions": [
+                    {
+                      "title": "Synchronize Model",
+                      "useIconButton": true,
+                      "icon": {
+                        "icon": "rotate",
+                        "color": "secondary",
+                        "variant": "light",
+                        "size": "icon"
+                      },
+                      "action": [
+                        {
+                          "type": "flow",
+                          "flowId": "integrationFunctions",
+                          "message": {
+                            "__transform": "\"Synchronizing Model \" & $$.rowData.name"
+                          },
+                          "transforms": {
+                            "pre": "{\n  \"REQUEST\": {\n    \"DATA\": {\n      \"id\": \"NetSuite\",\n      \"modelId\": $$.rowData.id\n    },\n    \"ACTION\": \"SYNC_ONE\"\n  }\n}"
+                          }
+                        }
+                      ],
+                      "disabled": {
+                        "__transform": "$isNilOrEmpty(data.configurationData)\nor\n$not(data.configurationData.allowSync)",
+                        "__dynamicFields": {
+                          "payload": null,
+                          "context": []
+                        },
+                        "__cacheKey": "",
+                        "__remote": false
+                      }
+                    }
+                  ]
+                },
+                "displayName": "Table Column",
+                "custom": {
+                  "elementName": "TableColumn24"
+                },
+                "parent": "LDh3A-zzR",
+                "hidden": false,
+                "nodes": [],
+                "linkedNodes": {}
+              },
+              "TgqKlAnju": {
+                "type": {
+                  "resolvedName": "TableColumn"
+                },
+                "isCanvas": false,
+                "props": {
+                  "label": "Created At",
+                  "format": "datetime",
+                  "dataPath": "createdAt",
+                  "description": "The date and time the record was created.",
+                  "field": "createdAt",
+                  "query": {},
+                  "timeZone": "setting",
+                  "style": {
+                    "fontSize": "18px"
+                  }
+                },
+                "displayName": "Table Column",
+                "custom": {
+                  "elementName": "TableColumn25"
+                },
+                "parent": "-duzCs9_C",
+                "hidden": false,
+                "nodes": [],
+                "linkedNodes": {}
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "routes": [
+    {
+      "id": "clteqfpx9001m016zba5hbfta",
+      "title": "Integration",
+      "path": "/system/integration/integration",
+      "moduleId": "integration",
+      "screenId": "integration",
+      "isMenuAccessible": false,
+      "submenu": ""
+    },
+    {
+      "id": "clteqniaz001o01atc31hd2dd",
+      "title": "Integration: NetSuite",
+      "path": "/system/integration/integration/NetSuite",
+      "moduleId": "integration",
+      "screenId": "integration",
+      "isMenuAccessible": true,
+      "submenu": ""
+    }
+  ]
+}

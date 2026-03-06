@@ -1,0 +1,22 @@
+{
+  "api": "application",
+  "modelName": "Connection",
+  "payload": [
+    {
+      "id": "ckyx563hf00010j5229swdmsm",
+      "name": "Netsuite (Restlets MES)",
+      "active": true,
+      "connectorId": "ac61106b-72c6-4fca-8bc7-0ba3d54fb574",
+      "url": "https://tstdrv2450314.restlets.api.netsuite.com/app/site/hosting/restlet.nl",
+      "options": {},
+      "credentials": {
+        "account": "TSTDRV2450314",
+        "consumerKey": "27daec17fe1ebfe4ae34a0527b00e4f3e8b4ea712d05490e1a83a118b82d78ef",
+        "consumerSecret": "b45de70633c85941d7bbfeabe33ef402db8d567377f81b99c9b486a65fefd54b",
+        "tokenId": "a74326be9d6e601a834c5436803d14841cc01920dc15543c50a0431126119309",
+        "tokenSecret": "e6e746e5b706d2ff29523d844563b11c0b182510631e808038d0e51fe8cdd37c"
+      }
+    }
+  ],
+  "metadata": {}
+}

@@ -1,0 +1,21 @@
+{
+  "api": "application",
+  "modelName": "InventoryType",
+  "payload": [
+    {
+      "id": "RMA",
+      "name": "RMA",
+      "finishedGood": false,
+      "rawMaterial": false,
+      "supply": false,
+      "system": false,
+      "usable": true,
+      "wip": false,
+      "color": null,
+      "description": "A Customer returned product (generated via Return Authorization)",
+      "customData": null,
+      "integrationData": null
+    }
+  ],
+  "metadata": {}
+}

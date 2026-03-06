@@ -1,0 +1,2515 @@
+{
+  "header": {
+    "id": "customerReturnAuthorizationReceiptConfirmation",
+    "name": "Customer Return Authorization Receipt Confirmation",
+    "description": "updating filter to allow RMA receipts to be viewed\n\nCopied from Receipt Confirmation v0.0.36",
+    "active": true,
+    "moduleId": "inventoryControl",
+    "isWidget": false
+  },
+  "version": {
+    "id": "cm3ypz6x806c301babgdig5qz",
+    "number": "0.0.5",
+    "description": "",
+    "screenId": "customerReturnAuthorizationReceiptConfirmation",
+    "design": {
+      "components": [
+        {
+          "name": "Table Template",
+          "tabTitle": "Table",
+          "type": "canvas",
+          "props": {
+            "design": {
+              "ROOT": {
+                "type": {
+                  "resolvedName": "Screen"
+                },
+                "isCanvas": true,
+                "props": {
+                  "padding": 0,
+                  "margin": 0,
+                  "flexDirection": "column",
+                  "flexWrap": false,
+                  "alignItems": "stretch",
+                  "justifyContent": "flex-start",
+                  "width": "100%",
+                  "height": "100%",
+                  "hidden": false,
+                  "flexGrow": false,
+                  "shadow": false,
+                  "borderRadius": 0,
+                  "flowsDelay": 0
+                },
+                "displayName": "Screen",
+                "custom": {
+                  "elementName": "Screen",
+                  "elementCounts": {
+                    "Container": 10,
+                    "Form": 1,
+                    "Table": 6,
+                    "Table Column": 67,
+                    "Text": 1,
+                    "Action Button": 14,
+                    "Combobox": 7,
+                    "Scan": 3,
+                    "Select": 6,
+                    "Resizable Panel": 1,
+                    "Button Group": 1,
+                    "Checkbox": 1
+                  }
+                },
+                "parent": null,
+                "hidden": false,
+                "nodes": [
+                  "JgXIahnGa"
+                ],
+                "linkedNodes": {}
+              },
+              "6s8OpvSmA": {
+                "type": {
+                  "resolvedName": "Form"
+                },
+                "isCanvas": true,
+                "props": {
+                  "query": {
+                    "api": "Application",
+                    "query": null,
+                    "dataPath": "edges[0]",
+                    "dataTransform": {
+                      "transform": null,
+                      "remote": true
+                    },
+                    "dataSubscription": {
+                      "enabled": false
+                    },
+                    "autoLoad": false,
+                    "model": "Receipt"
+                  },
+                  "blockNavigationWhenDirty": false,
+                  "description": "This table is a list of receipts and it's attributes\nTriggered by PO\nLinks out to inventory"
+                },
+                "displayName": "Form",
+                "custom": {
+                  "elementName": "Form1"
+                },
+                "parent": "4SjSDtp-H",
+                "hidden": false,
+                "nodes": [
+                  "Te4Bt_Yl5i"
+                ],
+                "linkedNodes": {}
+              },
+              "Te4Bt_Yl5i": {
+                "type": {
+                  "resolvedName": "Container"
+                },
+                "isCanvas": true,
+                "props": {
+                  "padding": 6,
+                  "margin": 1,
+                  "flexWrap": false,
+                  "flexDirection": "column",
+                  "justifyContent": "flex-start",
+                  "alignItems": "stretch",
+                  "width": "100%",
+                  "height": "auto",
+                  "hidden": false,
+                  "flexGrow": true,
+                  "flexShrink": false,
+                  "shadow": false,
+                  "borderRadius": 0,
+                  "collapsible": false,
+                  "collapsedFooter": false,
+                  "collapsedSize": 0,
+                  "collapsedByDefault": false,
+                  "onClickTransform": false,
+                  "layout": "flex",
+                  "bordersInput": {},
+                  "justifyItems": "start",
+                  "style": {},
+                  "background": "paper"
+                },
+                "displayName": "Container",
+                "custom": {
+                  "elementName": "Container2"
+                },
+                "parent": "6s8OpvSmA",
+                "hidden": false,
+                "nodes": [
+                  "pWvX8LIih",
+                  "Adc7L9lim"
+                ],
+                "linkedNodes": {}
+              },
+              "KLKf-Mgx7": {
+                "type": {
+                  "resolvedName": "TableColumn"
+                },
+                "isCanvas": false,
+                "props": {
+                  "label": "Line No",
+                  "format": "text",
+                  "sortable": false,
+                  "dataPath": "number",
+                  "description": "Receipt number",
+                  "field": "number",
+                  "query": {}
+                },
+                "displayName": "Table Column",
+                "custom": {
+                  "elementName": "TableColumn1"
+                },
+                "parent": "GFB5ptsYu",
+                "hidden": false,
+                "nodes": [],
+                "linkedNodes": {}
+              },
+              "uBupZfXpf": {
+                "type": {
+                  "resolvedName": "ActionButton"
+                },
+                "isCanvas": false,
+                "props": {
+                  "margin": 6,
+                  "buttonColor": "primary",
+                  "icon": {
+                    "icon": "rotate",
+                    "color": "inherit",
+                    "variant": "light",
+                    "size": "medium"
+                  },
+                  "width": "60px",
+                  "height": "60px",
+                  "disabled": false,
+                  "hidden": false,
+                  "useIconButton": false,
+                  "disableHover": true,
+                  "disableRipple": false,
+                  "action": [
+                    {
+                      "type": "transformation",
+                      "transformation": "$components.Table2.fn.search()",
+                      "remote": false
+                    }
+                  ],
+                  "title": "Search",
+                  "customIconSize": 1
+                },
+                "displayName": "Action Button",
+                "custom": {
+                  "elementName": "ActionButton1"
+                },
+                "parent": "cly7adjwk00ho356huddqkvop",
+                "hidden": false,
+                "nodes": [],
+                "linkedNodes": {}
+              },
+              "S6SuK6Vt0": {
+                "type": {
+                  "resolvedName": "TableColumn"
+                },
+                "isCanvas": false,
+                "props": {
+                  "label": "Quantity",
+                  "format": "text",
+                  "sortable": true,
+                  "dataPath": "qty",
+                  "field": "totalQuantity",
+                  "query": {
+                    "fields": []
+                  },
+                  "description": "The total quantity received.  Ex: 5 license plates and 10 per = 50.",
+                  "editable": false
+                },
+                "displayName": "Table Column",
+                "custom": {
+                  "elementName": "TableColumn3"
+                },
+                "parent": "GFB5ptsYu",
+                "hidden": false,
+                "nodes": [],
+                "linkedNodes": {}
+              },
+              "7jD9N0W41": {
+                "type": {
+                  "resolvedName": "ScanTextInput"
+                },
+                "isCanvas": false,
+                "props": {
+                  "padding": 5,
+                  "width": "100%",
+                  "height": "auto",
+                  "validation": {
+                    "required": false
+                  },
+                  "uniqueValidationEnabled": false,
+                  "visible": true,
+                  "type": "scanText",
+                  "label": "Shipper",
+                  "allowManualInput": true,
+                  "terminatorCharacters": [
+                    "enter",
+                    "tab"
+                  ],
+                  "prefixString": "",
+                  "stripPrefixString": true,
+                  "scanTimeoutMilliseconds": 200,
+                  "clearable": true,
+                  "autoFocus": true,
+                  "clearOnFocus": true,
+                  "beepOnScan": false,
+                  "formElement": "Form1",
+                  "dataPath": "shipper",
+                  "target": {
+                    "dataPath": "shipper._eq"
+                  },
+                  "description": "Receipt shipper",
+                  "field": "shipper",
+                  "predicate": "_eq"
+                },
+                "displayName": "Scan",
+                "custom": {
+                  "elementName": "Scan1"
+                },
+                "parent": "pWvX8LIih",
+                "hidden": false,
+                "nodes": [],
+                "linkedNodes": {}
+              },
+              "clbutkcsw002c306d1kd9dkfx": {
+                "type": {
+                  "resolvedName": "ScanTextInput"
+                },
+                "isCanvas": false,
+                "props": {
+                  "padding": 5,
+                  "width": "100%",
+                  "height": "auto",
+                  "validation": {
+                    "required": false
+                  },
+                  "uniqueValidationEnabled": false,
+                  "visible": true,
+                  "type": "scanText",
+                  "label": "Lot Number",
+                  "allowManualInput": true,
+                  "terminatorCharacters": [
+                    "enter",
+                    "tab"
+                  ],
+                  "prefixString": "",
+                  "stripPrefixString": true,
+                  "scanTimeoutMilliseconds": 200,
+                  "clearable": true,
+                  "autoFocus": false,
+                  "clearOnFocus": true,
+                  "beepOnScan": false,
+                  "formElement": "Form1",
+                  "dataPath": "lotNumber",
+                  "target": {
+                    "dataPath": "receiptLines._some.lotNumber._eq"
+                  },
+                  "description": "",
+                  "field": "lotNumber",
+                  "predicate": "_eq"
+                },
+                "displayName": "Scan",
+                "custom": {
+                  "elementName": "Scan2"
+                },
+                "parent": "pWvX8LIih",
+                "hidden": false,
+                "nodes": [],
+                "linkedNodes": {}
+              },
+              "pWvX8LIih": {
+                "type": {
+                  "resolvedName": "Container"
+                },
+                "isCanvas": true,
+                "props": {
+                  "padding": 0,
+                  "margin": 0,
+                  "flexWrap": false,
+                  "flexDirection": "column",
+                  "justifyContent": "flex-start",
+                  "alignItems": "stretch",
+                  "width": "100%",
+                  "height": "auto",
+                  "hidden": false,
+                  "flexGrow": false,
+                  "flexShrink": false,
+                  "shadow": false,
+                  "borderRadius": 0,
+                  "collapsible": false,
+                  "collapsedFooter": false,
+                  "collapsedSize": 0,
+                  "collapsedByDefault": false,
+                  "onClickTransform": false,
+                  "layout": "flex",
+                  "bordersInput": {},
+                  "justifyItems": "start",
+                  "style": {}
+                },
+                "displayName": "Container",
+                "custom": {
+                  "elementName": "Container4"
+                },
+                "parent": "Te4Bt_Yl5i",
+                "hidden": false,
+                "nodes": [
+                  "7jD9N0W41",
+                  "clbutkcsw002c306d1kd9dkfx",
+                  "clbuudvvt000y306d8b7a919u"
+                ],
+                "linkedNodes": {}
+              },
+              "clbuudvvt000y306d8b7a919u": {
+                "type": {
+                  "resolvedName": "ScanTextInput"
+                },
+                "isCanvas": false,
+                "props": {
+                  "padding": 5,
+                  "width": "100%",
+                  "height": "auto",
+                  "validation": {
+                    "required": false
+                  },
+                  "uniqueValidationEnabled": false,
+                  "visible": true,
+                  "type": "scanText",
+                  "label": "Receipt Number",
+                  "allowManualInput": true,
+                  "terminatorCharacters": [
+                    "enter",
+                    "tab"
+                  ],
+                  "prefixString": "",
+                  "stripPrefixString": true,
+                  "scanTimeoutMilliseconds": 200,
+                  "clearable": true,
+                  "autoFocus": false,
+                  "clearOnFocus": true,
+                  "beepOnScan": false,
+                  "formElement": "Form1",
+                  "dataPath": "number",
+                  "target": {
+                    "dataPath": "number._eq"
+                  },
+                  "description": "Receipt number",
+                  "field": "number",
+                  "predicate": "_eq"
+                },
+                "displayName": "Scan",
+                "custom": {
+                  "elementName": "Scan3"
+                },
+                "parent": "pWvX8LIih",
+                "hidden": false,
+                "nodes": [],
+                "linkedNodes": {}
+              },
+              "JFif3bnZN": {
+                "type": {
+                  "resolvedName": "Table"
+                },
+                "isCanvas": true,
+                "props": {
+                  "margin": 0,
+                  "width": "100%",
+                  "height": "auto",
+                  "flexGrow": true,
+                  "query": {
+                    "api": "Application",
+                    "query": null,
+                    "dataPath": "edges",
+                    "dataTransform": {
+                      "remote": false
+                    },
+                    "dataSubscription": {
+                      "enabled": false
+                    },
+                    "autoLoad": false,
+                    "fields": [
+                      "id",
+                      "status.color"
+                    ],
+                    "disableDataChangeIndicator": false,
+                    "selectedDataChangeIndicator": null,
+                    "parameters": "{\n\t\"filter\": {\n\t\t\"statusId\": {\n\t\t\t\"_in\": [\"Pending\"]\n\t\t},\n    \"note\": {\n      \"_contains\": \"RMA Receipt\"\n    }\n\t}\n}",
+                    "model": "Receipt"
+                  },
+                  "selectable": "none",
+                  "showToolPanels": false,
+                  "showStatusBar": true,
+                  "enableGrouping": false,
+                  "enableCharts": false,
+                  "showColumnMenu": false,
+                  "enableRowDragging": false,
+                  "disableColumnDragging": true,
+                  "disableDragLeaveHidesColumns": true,
+                  "masterDetail": true,
+                  "detailHeight": 500,
+                  "hideTableHeader": false,
+                  "rowMultiSelectWithClick": false,
+                  "description": "This table is a list of receipts and it's attributes\nTriggered by PO\nLinks out to inventory",
+                  "filterFormName": "Form1",
+                  "tableName": "Receipts Pending Confirmation",
+                  "defaultSort": [
+                    {
+                      "field": "TableColumn30",
+                      "direction": "asc"
+                    }
+                  ],
+                  "fontSize": "16px",
+                  "limitToOneActiveDetail": true
+                },
+                "displayName": "Table",
+                "custom": {
+                  "elementName": "Table2"
+                },
+                "parent": "kZpEVv9GD",
+                "hidden": false,
+                "nodes": [
+                  "5el1gSIit",
+                  "Rl8RPtFLr",
+                  "l5FdkAsAP",
+                  "EwLpUYrUh",
+                  "aPR0kHqR65",
+                  "_oi-baQk4",
+                  "no2YkQkZZ",
+                  "FXAd3Bh_G",
+                  "khXwUSNZ3",
+                  "cvkhM1vaV"
+                ],
+                "linkedNodes": {
+                  "Table2Detail": "opVWAowkM"
+                }
+              },
+              "_oi-baQk4": {
+                "type": {
+                  "resolvedName": "TableColumn"
+                },
+                "isCanvas": false,
+                "props": {
+                  "label": "Status",
+                  "format": "text",
+                  "sortable": true,
+                  "dataPath": "statusId",
+                  "style": {
+                    "__transform": "{\n  \"background\":data.status.color\n}",
+                    "__dynamicFields": {
+                      "payload": null,
+                      "context": []
+                    },
+                    "__cacheKey": "",
+                    "__remote": false
+                  }
+                },
+                "displayName": "Table Column",
+                "custom": {
+                  "elementName": "TableColumn22"
+                },
+                "parent": "JFif3bnZN",
+                "hidden": false,
+                "nodes": [],
+                "linkedNodes": {}
+              },
+              "EwLpUYrUh": {
+                "type": {
+                  "resolvedName": "TableColumn"
+                },
+                "isCanvas": false,
+                "props": {
+                  "label": "Transaction #",
+                  "format": "text",
+                  "sortable": true,
+                  "dataPath": "trx",
+                  "query": {
+                    "fields": []
+                  }
+                },
+                "displayName": "Table Column",
+                "custom": {
+                  "elementName": "TableColumn23"
+                },
+                "parent": "JFif3bnZN",
+                "hidden": false,
+                "nodes": [],
+                "linkedNodes": {}
+              },
+              "l5FdkAsAP": {
+                "type": {
+                  "resolvedName": "TableColumn"
+                },
+                "isCanvas": false,
+                "props": {
+                  "label": "Receipt No",
+                  "format": "text",
+                  "sortable": true,
+                  "dataPath": "number",
+                  "style": {
+                    "fontSize": "16px"
+                  }
+                },
+                "displayName": "Table Column",
+                "custom": {
+                  "elementName": "TableColumn24"
+                },
+                "parent": "JFif3bnZN",
+                "hidden": false,
+                "nodes": [],
+                "linkedNodes": {}
+              },
+              "opVWAowkM": {
+                "type": {
+                  "resolvedName": "Container"
+                },
+                "isCanvas": true,
+                "props": {
+                  "padding": 0,
+                  "margin": 0,
+                  "flexWrap": true,
+                  "flexDirection": "column",
+                  "justifyContent": "flex-start",
+                  "alignItems": "stretch",
+                  "width": "100%",
+                  "height": "100%",
+                  "hidden": false,
+                  "flexGrow": true,
+                  "flexShrink": false,
+                  "shadow": true,
+                  "borderRadius": 0,
+                  "collapsible": false,
+                  "collapsedFooter": false,
+                  "collapsedSize": 0,
+                  "collapsedByDefault": false,
+                  "onClickTransform": false,
+                  "layout": "flex",
+                  "bordersInput": {
+                    "borderMode": "full",
+                    "border": "4px undefined "
+                  },
+                  "justifyItems": "start",
+                  "style": {},
+                  "lockSize": true,
+                  "background": "custom",
+                  "customBackground": "#f16334"
+                },
+                "displayName": "Container",
+                "custom": {
+                  "elementName": "Table2Detail"
+                },
+                "parent": "JFif3bnZN",
+                "hidden": false,
+                "nodes": [
+                  "GFB5ptsYu"
+                ],
+                "linkedNodes": {}
+              },
+              "Rl8RPtFLr": {
+                "type": {
+                  "resolvedName": "TableColumn"
+                },
+                "isCanvas": false,
+                "props": {
+                  "label": "Actions",
+                  "format": "action",
+                  "sortable": false,
+                  "dataPath": "confirm",
+                  "query": {
+                    "fields": []
+                  },
+                  "actions": [
+                    {
+                      "title": "Confirm Entire Receipt",
+                      "useIconButton": true,
+                      "icon": {
+                        "icon": "square-check",
+                        "color": "success",
+                        "variant": "light",
+                        "size": "xlarge"
+                      },
+                      "action": [
+                        {
+                          "type": "confirmation",
+                          "message": {
+                            "__transform": "\"Confirm Receipt #\" \n& $$.rowData.number\n& \". This action can not be undone.\""
+                          },
+                          "submitIcon": {
+                            "icon": "check",
+                            "color": "inherit",
+                            "variant": "light",
+                            "size": "icon"
+                          }
+                        },
+                        {
+                          "type": "flow",
+                          "flowId": "rmaReceiptConfirmationFromScreen",
+                          "transforms": {
+                            "pre": "{\n  \"REQUEST\": {\n    \"ACTION\": \"CONFIRM_REC\",\n    \"DATA\": {\n      \"receiptId\": $$.rowData.id\n    }\n  }\n}",
+                            "post": "$components.Table2.fn.search()"
+                          },
+                          "message": {
+                            "__transform": "data"
+                          }
+                        }
+                      ],
+                      "disabled": false,
+                      "hidden": false
+                    },
+                    {
+                      "title": "Update Receipt Record Details",
+                      "useIconButton": true,
+                      "icon": {
+                        "icon": "pencil",
+                        "color": "secondary",
+                        "variant": "light",
+                        "size": "large"
+                      },
+                      "action": [
+                        {
+                          "type": "form",
+                          "submitIcon": {
+                            "icon": "save",
+                            "color": "inherit",
+                            "variant": "light",
+                            "size": "icon"
+                          },
+                          "title": {
+                            "__transform": "\"Update Receipt: \" & rowData.number"
+                          },
+                          "fields": [
+                            {
+                              "label": "Supplier BOL:",
+                              "uniqueValidationEnabled": false,
+                              "validation": {
+                                "required": true
+                              },
+                              "dataPath": "shipper",
+                              "field": "shipper",
+                              "description": "Receipt shipper",
+                              "element": "TextInput",
+                              "type": "text"
+                            },
+                            {
+                              "label": "Receipt Date",
+                              "uniqueValidationEnabled": false,
+                              "validation": {
+                                "required": true
+                              },
+                              "dataPath": "receiptAt",
+                              "field": "receiptAt",
+                              "description": "Date on the receipt",
+                              "element": "DateTimeInput",
+                              "type": "datetime"
+                            },
+                            {
+                              "label": "Receipt Notes",
+                              "uniqueValidationEnabled": false,
+                              "validation": {
+                                "required": false
+                              },
+                              "dataPath": "note",
+                              "field": "note",
+                              "description": "Receipt notes - user defined",
+                              "element": "markdownInput",
+                              "type": "markdown"
+                            }
+                          ],
+                          "transforms": {
+                            "pre": "rowData"
+                          }
+                        },
+                        {
+                          "type": "mutation",
+                          "api": "Application",
+                          "mutation": "mutation UpdateReceipt($payload: [ReceiptUpdatePayloadInput!]!) {\n  mutation: updateReceipt(payload: $payload) { \n    id\n    number\n  }\n}",
+                          "transforms": {
+                            "pre": "{\n  \"payload\": {\n    \"where\":{ \"id\": $$.rowData.id},\n    \"update\": $$.data\n  }\n}"
+                          },
+                          "message": {
+                            "__transform": "\"Receipt \" & rowData.number & \" updated successfully.\""
+                          }
+                        },
+                        {
+                          "type": "transformation",
+                          "remote": false,
+                          "transformation": "$components.Table2.fn.search()"
+                        }
+                      ],
+                      "disabled": false,
+                      "hidden": false
+                    },
+                    {
+                      "title": "Delete Entire Receipt (all inventory must be deleted first)",
+                      "useIconButton": true,
+                      "icon": {
+                        "icon": "trash",
+                        "color": "error",
+                        "variant": "light",
+                        "size": "large"
+                      },
+                      "action": [
+                        {
+                          "type": "confirmation",
+                          "message": "This is an irreversible transaction. Are you sure you wish to delete this Receipt?",
+                          "submitIcon": {
+                            "icon": "check",
+                            "color": "inherit",
+                            "variant": "light",
+                            "size": "icon"
+                          }
+                        },
+                        {
+                          "type": "flow",
+                          "flowId": "rmaReceiptConfirmationFromScreen",
+                          "transforms": {
+                            "pre": "{\n  \"REQUEST\": {\n    \"ACTION\": \"DELETE_REC\",\n    \"DATA\": {\n      \"receiptId\": $$.rowData.id\n    }\n  }\n}"
+                          }
+                        },
+                        {
+                          "type": "transformation",
+                          "transformation": "$components.Table2.fn.search()"
+                        }
+                      ],
+                      "disabled": {
+                        "__transform": "$not($isNilOrEmpty(data.lines.edges.node.inventories.edges.node.id))",
+                        "__dynamicFields": {
+                          "payload": null,
+                          "context": []
+                        },
+                        "__cacheKey": "",
+                        "__remote": false
+                      }
+                    },
+                    {
+                      "title": "Print Labels",
+                      "useIconButton": true,
+                      "icon": {
+                        "icon": "barcode-read",
+                        "color": "info",
+                        "variant": "light",
+                        "size": "large"
+                      },
+                      "disabled": true,
+                      "action": [
+                        {
+                          "type": "confirmation",
+                          "message": "This will print labels for all inventory related to this receipt. Are you sure you wish to continue?",
+                          "submitIcon": {
+                            "icon": "check",
+                            "color": "inherit",
+                            "variant": "light",
+                            "size": "icon"
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "width": "auto"
+                },
+                "displayName": "Table Column",
+                "custom": {
+                  "elementName": "TableColumn25"
+                },
+                "parent": "JFif3bnZN",
+                "hidden": false,
+                "nodes": [],
+                "linkedNodes": {}
+              },
+              "GOslLEs0J": {
+                "type": {
+                  "resolvedName": "TableColumn"
+                },
+                "isCanvas": false,
+                "props": {
+                  "label": "Actions",
+                  "format": "action",
+                  "sortable": false,
+                  "dataPath": "deleteLine",
+                  "query": {
+                    "fields": []
+                  },
+                  "actions": [
+                    {
+                      "useIconButton": true,
+                      "icon": {
+                        "icon": "pencil",
+                        "color": "secondary",
+                        "variant": "light",
+                        "size": "large"
+                      },
+                      "action": [
+                        {
+                          "type": "confirmation",
+                          "message": "Updating this line may impact the quality of information being aggregated back to your external system. In particular if you modify the Line Quantity or other attributes that are expected by the external system.."
+                        },
+                        {
+                          "type": "form",
+                          "submitIcon": {
+                            "icon": "save",
+                            "color": "inherit",
+                            "variant": "light",
+                            "size": "icon"
+                          },
+                          "title": {
+                            "__transform": "\"Update Receipt Line: \" & rowData.number"
+                          },
+                          "fields": [
+                            {
+                              "label": "Supplier Lot Number",
+                              "uniqueValidationEnabled": false,
+                              "validation": {
+                                "required": false
+                              },
+                              "dataPath": "lotNumber",
+                              "field": "lotNumber",
+                              "description": "Incoming lot number - all inventory for this line should be of the same Lot",
+                              "element": "TextInput",
+                              "type": "text"
+                            },
+                            {
+                              "label": "FUUZ Internal Lot",
+                              "uniqueValidationEnabled": false,
+                              "validation": {
+                                "required": false
+                              },
+                              "dataPath": "lot",
+                              "field": "lot",
+                              "description": "",
+                              "element": "SelectInput",
+                              "type": "select",
+                              "api": "Application",
+                              "dataModel": "LotManagement",
+                              "labelField": "number",
+                              "labelPath": "number",
+                              "additionalFields": [
+                                "number"
+                              ],
+                              "selectFields": [
+                                "number"
+                              ],
+                              "target": {
+                                "dataPath": "lotId"
+                              },
+                              "linkTarget": null,
+                              "query": {
+                                "fields": [
+                                  "lot.id",
+                                  "lot.number"
+                                ]
+                              }
+                            },
+                            {
+                              "label": "Line Item Quantity: ",
+                              "uniqueValidationEnabled": false,
+                              "validation": {
+                                "required": true
+                              },
+                              "dataPath": "quantity.value",
+                              "field": "quantity.value",
+                              "description": "Total quantity of all product being received against this line - IF integrated with external system this is the value that will be passed.",
+                              "element": "floatInput",
+                              "type": "float"
+                            },
+                            {
+                              "label": "Note",
+                              "uniqueValidationEnabled": false,
+                              "validation": {
+                                "required": false
+                              },
+                              "dataPath": "note",
+                              "field": "note",
+                              "description": "Note field for more information.",
+                              "element": "MarkdownInput",
+                              "type": "markdown"
+                            }
+                          ],
+                          "transforms": {
+                            "pre": "rowData"
+                          }
+                        },
+                        {
+                          "type": "mutation",
+                          "api": "Application",
+                          "mutation": "mutation UpdateReceiptLine($payload: [ReceiptLineUpdatePayloadInput!]!) {\n  mutation: updateReceiptLine(payload: $payload) { \n    id\n    number\n  }\n}",
+                          "transforms": {
+                            "pre": "{\n  \"payload\": {\n    \"where\":{ \"id\": $$.rowData.id},\n    \"update\": $$.data\n  }\n}"
+                          },
+                          "message": {
+                            "__transform": "\"Receipt Line \" & rowData.number & \" updated successfully.\""
+                          }
+                        },
+                        {
+                          "type": "transformation",
+                          "remote": false,
+                          "transformation": "$components.Table3.fn.search()"
+                        }
+                      ],
+                      "hidden": false,
+                      "title": "Update Receipt Line"
+                    },
+                    {
+                      "title": "Delete Receipt Line (only if no inventory)",
+                      "useIconButton": true,
+                      "icon": {
+                        "icon": "trash",
+                        "color": "error",
+                        "variant": "light",
+                        "size": "large"
+                      },
+                      "action": [
+                        {
+                          "type": "confirmation",
+                          "message": "Deleting this Receipt Line - will NOT adjust the associated inventory - Before deleting this you must first adjust or delete the attached inventory records."
+                        },
+                        {
+                          "type": "flow",
+                          "flowId": "rmaReceiptConfirmationFromScreen",
+                          "transforms": {
+                            "pre": "{\n  \"REQUEST\": {\n    \"ACTION\": \"DELETE_LINE\",\n    \"DATA\": {\n      \"receiptLineId\": $$.rowData.id\n    }\n  }\n}"
+                          }
+                        },
+                        {
+                          "type": "transformation",
+                          "transformation": "$components.Table2.fn.search()"
+                        }
+                      ],
+                      "disabled": {
+                        "__transform": "$not($isNilOrEmpty(data.inventories.edges.node.id))",
+                        "__dynamicFields": {
+                          "payload": null,
+                          "context": []
+                        },
+                        "__cacheKey": "",
+                        "__remote": false
+                      },
+                      "hidden": false
+                    },
+                    {
+                      "title": "Print Labels for all Line Related Inventory",
+                      "useIconButton": true,
+                      "icon": {
+                        "icon": "barcode-read",
+                        "color": "info",
+                        "variant": "light",
+                        "size": "large"
+                      },
+                      "action": [
+                        {
+                          "type": "confirmation",
+                          "submitIcon": {
+                            "icon": "check",
+                            "color": "inherit",
+                            "variant": "light",
+                            "size": "icon"
+                          },
+                          "message": "This will print labels for all inventory associated with this receipt line. Are you sure you wish to continue?"
+                        }
+                      ],
+                      "disabled": true
+                    }
+                  ],
+                  "width": "auto"
+                },
+                "displayName": "Table Column",
+                "custom": {
+                  "elementName": "TableColumn28"
+                },
+                "parent": "GFB5ptsYu",
+                "hidden": false,
+                "nodes": [],
+                "linkedNodes": {}
+              },
+              "GFB5ptsYu": {
+                "type": {
+                  "resolvedName": "Table"
+                },
+                "isCanvas": true,
+                "props": {
+                  "margin": 2,
+                  "width": "100%",
+                  "height": "500px",
+                  "flexGrow": false,
+                  "query": {
+                    "api": "Application",
+                    "query": null,
+                    "dataPath": "edges",
+                    "dataTransform": {
+                      "transform": "[\nedges.node~>|$|{\n  \"qty\": quantity.(value & \" \" & unit.code)\n}|\n]",
+                      "remote": true
+                    },
+                    "dataSubscription": {
+                      "enabled": false
+                    },
+                    "autoLoad": true,
+                    "fields": [
+                      "id",
+                      "quantity.value",
+                      "quantity.unit.code",
+                      "status.color",
+                      "inventories.edges.node.id",
+                      "lot.number",
+                      "lot.id"
+                    ],
+                    "disableDataChangeIndicator": false,
+                    "selectedDataChangeIndicator": null,
+                    "parameters": "{\n  \"filter\": {\n    \"receiptId\": {\n      \"_in\": [$parent.data.id]\n    },\n    \"status\": {\n      \"pending\": {\"_eq\": true}\n    }\n  }\n}",
+                    "model": "ReceiptLine"
+                  },
+                  "selectable": "none",
+                  "showToolPanels": false,
+                  "showStatusBar": true,
+                  "enableGrouping": false,
+                  "enableCharts": false,
+                  "showColumnMenu": false,
+                  "enableRowDragging": false,
+                  "disableColumnDragging": true,
+                  "disableDragLeaveHidesColumns": true,
+                  "masterDetail": true,
+                  "detailHeight": 500,
+                  "hideTableHeader": false,
+                  "description": "This table is a list of receipts and it's attributes\nTriggered by PO\nLinks out to inventory",
+                  "rowMultiSelectWithClick": false,
+                  "tableName": "Receipt Lines Pending Confirmation",
+                  "defaultSort": [
+                    {
+                      "field": "TableColumn1",
+                      "direction": "asc"
+                    }
+                  ],
+                  "fontSize": "16px",
+                  "limitToOneActiveDetail": true
+                },
+                "displayName": "Table",
+                "custom": {
+                  "elementName": "Table3"
+                },
+                "parent": "opVWAowkM",
+                "hidden": false,
+                "nodes": [
+                  "4z98Y-RGGz",
+                  "GOslLEs0J",
+                  "KLKf-Mgx7",
+                  "839eFUE8X",
+                  "ofNyjntFgq",
+                  "S6SuK6Vt0",
+                  "ts2Bk0wEQe",
+                  "tdLcKm5oxK"
+                ],
+                "linkedNodes": {
+                  "Table3Detail": "bCt5djzBW"
+                }
+              },
+              "no2YkQkZZ": {
+                "type": {
+                  "resolvedName": "TableColumn"
+                },
+                "isCanvas": false,
+                "props": {
+                  "label": "Receipt At",
+                  "format": "datetime",
+                  "sortable": true,
+                  "dataPath": "receiptAt",
+                  "description": "Date on the receipt",
+                  "field": "receiptAt",
+                  "query": {},
+                  "style": {
+                    "fontSize": "16px"
+                  }
+                },
+                "displayName": "Table Column",
+                "custom": {
+                  "elementName": "TableColumn30"
+                },
+                "parent": "JFif3bnZN",
+                "hidden": false,
+                "nodes": [],
+                "linkedNodes": {}
+              },
+              "khXwUSNZ3": {
+                "type": {
+                  "resolvedName": "TableColumn"
+                },
+                "isCanvas": false,
+                "props": {
+                  "label": "Location",
+                  "format": "text",
+                  "sortable": true,
+                  "dataPath": "location.name",
+                  "field": "location.name"
+                },
+                "displayName": "Table Column",
+                "custom": {
+                  "elementName": "TableColumn31"
+                },
+                "parent": "JFif3bnZN",
+                "hidden": false,
+                "nodes": [],
+                "linkedNodes": {}
+              },
+              "cvkhM1vaV": {
+                "type": {
+                  "resolvedName": "TableColumn"
+                },
+                "isCanvas": false,
+                "props": {
+                  "label": "Supplier",
+                  "format": "text",
+                  "sortable": true,
+                  "dataPath": "purchaseOrder.supplier.code",
+                  "field": "purchaseOrder.supplier.code"
+                },
+                "displayName": "Table Column",
+                "custom": {
+                  "elementName": "TableColumn32"
+                },
+                "parent": "JFif3bnZN",
+                "hidden": false,
+                "nodes": [],
+                "linkedNodes": {}
+              },
+              "FXAd3Bh_G": {
+                "type": {
+                  "resolvedName": "TableColumn"
+                },
+                "isCanvas": false,
+                "props": {
+                  "label": "Shipper",
+                  "format": "text",
+                  "sortable": true,
+                  "dataPath": "shipper",
+                  "description": "Receipt shipper",
+                  "field": "shipper"
+                },
+                "displayName": "Table Column",
+                "custom": {
+                  "elementName": "TableColumn33"
+                },
+                "parent": "JFif3bnZN",
+                "hidden": false,
+                "nodes": [],
+                "linkedNodes": {}
+              },
+              "bCt5djzBW": {
+                "type": {
+                  "resolvedName": "Container"
+                },
+                "isCanvas": true,
+                "props": {
+                  "padding": 3,
+                  "margin": 0,
+                  "flexWrap": true,
+                  "flexDirection": "column",
+                  "justifyContent": "flex-start",
+                  "alignItems": "stretch",
+                  "width": "100%",
+                  "height": "100%",
+                  "hidden": false,
+                  "flexGrow": true,
+                  "flexShrink": false,
+                  "shadow": true,
+                  "borderRadius": 0,
+                  "collapsible": false,
+                  "collapsedFooter": false,
+                  "collapsedSize": 0,
+                  "collapsedByDefault": false,
+                  "onClickTransform": false,
+                  "layout": "flex",
+                  "bordersInput": {},
+                  "justifyItems": "start",
+                  "style": {},
+                  "lockSize": true,
+                  "background": "custom",
+                  "customBackground": "#2e29a6"
+                },
+                "displayName": "Container",
+                "custom": {
+                  "elementName": "Table3Detail"
+                },
+                "parent": "GFB5ptsYu",
+                "hidden": false,
+                "nodes": [
+                  "mkGpx-jsw"
+                ],
+                "linkedNodes": {}
+              },
+              "mkGpx-jsw": {
+                "type": {
+                  "resolvedName": "Table"
+                },
+                "isCanvas": true,
+                "props": {
+                  "margin": 0,
+                  "width": "100%",
+                  "height": "100%",
+                  "flexGrow": true,
+                  "query": {
+                    "api": "Application",
+                    "query": null,
+                    "dataPath": "edges",
+                    "dataTransform": {
+                      "transform": "[\nedges.node~>|$|{\n  \"qty\": quantity.(value & \" \" & unit.code)\n}|\n]",
+                      "remote": true
+                    },
+                    "dataSubscription": {
+                      "enabled": false
+                    },
+                    "autoLoad": true,
+                    "fields": [
+                      "id",
+                      "masterInventoryId",
+                      "quantity.value",
+                      "quantity.unit.code",
+                      "inventoryStatus.color",
+                      "inventoryStatus.id"
+                    ],
+                    "disableDataChangeIndicator": false,
+                    "selectedDataChangeIndicator": null,
+                    "parameters": "{\n  \"filter\": {\n    \"receiptLineId\": {\n      \"_in\": [$parent.data.id]\n    },\n    \"_or\":[{\"inventoryStatus\":{\"received\":{\"_eq\":true}}},{\"active\":{\"_eq\":true}}]\n  }\n}",
+                    "model": "Inventory"
+                  },
+                  "selectable": "none",
+                  "showToolPanels": false,
+                  "showStatusBar": true,
+                  "enableGrouping": false,
+                  "enableCharts": false,
+                  "showColumnMenu": false,
+                  "enableRowDragging": false,
+                  "disableColumnDragging": true,
+                  "disableDragLeaveHidesColumns": true,
+                  "masterDetail": false,
+                  "hideTableHeader": false,
+                  "description": "This table is the list of inventory and it's attributes\nLinks out to production history and production depletion",
+                  "tableName": "Inventory Pending Confirmation",
+                  "rowMultiSelectWithClick": false,
+                  "defaultSort": [
+                    {
+                      "field": "TableColumn38",
+                      "direction": "asc"
+                    }
+                  ],
+                  "fontSize": "16px",
+                  "limitToOneActiveDetail": false
+                },
+                "displayName": "Table",
+                "custom": {
+                  "elementName": "Table4"
+                },
+                "parent": "bCt5djzBW",
+                "hidden": false,
+                "nodes": [
+                  "cloqagiqf000k356epx7kq430",
+                  "s5xKNuhc2",
+                  "O0R2wOXNvI",
+                  "O5MvYZioQ",
+                  "GirVxq-Ea",
+                  "RzoiAFSnp",
+                  "OkwJlT6AR"
+                ],
+                "linkedNodes": {}
+              },
+              "s5xKNuhc2": {
+                "type": {
+                  "resolvedName": "TableColumn"
+                },
+                "isCanvas": false,
+                "props": {
+                  "label": "Inventory",
+                  "format": "text",
+                  "sortable": true,
+                  "dataPath": "number",
+                  "description": "This is the inventory number - Label field",
+                  "field": "number"
+                },
+                "displayName": "Table Column",
+                "custom": {
+                  "elementName": "TableColumn38"
+                },
+                "parent": "mkGpx-jsw",
+                "hidden": false,
+                "nodes": [],
+                "linkedNodes": {}
+              },
+              "O5MvYZioQ": {
+                "type": {
+                  "resolvedName": "TableColumn"
+                },
+                "isCanvas": false,
+                "props": {
+                  "label": "Status ",
+                  "format": "text",
+                  "sortable": true,
+                  "dataPath": "inventoryStatus.name",
+                  "field": "inventoryStatus.name",
+                  "style": {
+                    "__transform": "{\n  \"background\":data.inventoryStatus.color\n}",
+                    "__dynamicFields": {
+                      "payload": null,
+                      "context": []
+                    },
+                    "__cacheKey": "",
+                    "__remote": false
+                  }
+                },
+                "displayName": "Table Column",
+                "custom": {
+                  "elementName": "TableColumn39"
+                },
+                "parent": "mkGpx-jsw",
+                "hidden": false,
+                "nodes": [],
+                "linkedNodes": {}
+              },
+              "RzoiAFSnp": {
+                "type": {
+                  "resolvedName": "TableColumn"
+                },
+                "isCanvas": false,
+                "props": {
+                  "label": "Quantity",
+                  "format": "text",
+                  "sortable": true,
+                  "dataPath": "qty",
+                  "description": "What is the inventory quantity?",
+                  "field": "quantity",
+                  "query": {
+                    "fields": []
+                  }
+                },
+                "displayName": "Table Column",
+                "custom": {
+                  "elementName": "TableColumn40"
+                },
+                "parent": "mkGpx-jsw",
+                "hidden": false,
+                "nodes": [],
+                "linkedNodes": {}
+              },
+              "OkwJlT6AR": {
+                "type": {
+                  "resolvedName": "TableColumn"
+                },
+                "isCanvas": false,
+                "props": {
+                  "label": "Current Location",
+                  "format": "text",
+                  "sortable": true,
+                  "dataPath": "location.name",
+                  "field": "location.name"
+                },
+                "displayName": "Table Column",
+                "custom": {
+                  "elementName": "TableColumn41"
+                },
+                "parent": "mkGpx-jsw",
+                "hidden": false,
+                "nodes": [],
+                "linkedNodes": {}
+              },
+              "cloqagiqf000k356epx7kq430": {
+                "type": {
+                  "resolvedName": "TableColumn"
+                },
+                "isCanvas": false,
+                "props": {
+                  "label": "Actions",
+                  "format": "action",
+                  "sortable": false,
+                  "dataPath": "deleteLine",
+                  "query": {
+                    "fields": []
+                  },
+                  "actions": [
+                    {
+                      "title": "Edit Inventory Values",
+                      "useIconButton": true,
+                      "icon": {
+                        "icon": "pencil",
+                        "color": "secondary",
+                        "variant": "light",
+                        "size": "large"
+                      },
+                      "action": [
+                        {
+                          "type": "confirmation",
+                          "message": "Editing quantity related values for this inventory will not impact the receipt line quantities - if you do not modify both they will not be in sync! Do you wish to continue? NOTE: Copy the Lot/Serial to be pasted to the Adjustment App!",
+                          "submitIcon": {
+                            "icon": "check",
+                            "color": "inherit",
+                            "variant": "light",
+                            "size": "icon"
+                          }
+                        },
+                        {
+                          "type": "navigation",
+                          "navigationType": "New Webpage",
+                          "target": "/warehouseManagement/inventoryControl/inventoryAdjustmentDesktop",
+                          "newWindow": true
+                        }
+                      ],
+                      "disabled": true,
+                      "hidden": true
+                    },
+                    {
+                      "title": "Link Inventory",
+                      "icon": {
+                        "icon": "link",
+                        "color": "primary",
+                        "variant": "light",
+                        "size": "large"
+                      },
+                      "action": [
+                        {
+                          "message": "This should allow linking inactive inventory and create transactions",
+                          "type": "form",
+                          "fields": [
+                            {
+                              "label": "Inventory Serial",
+                              "uniqueValidationEnabled": false,
+                              "validation": {
+                                "required": true
+                              },
+                              "dataPath": "inventory",
+                              "field": "inventory",
+                              "description": "",
+                              "element": "SelectInput",
+                              "type": "select",
+                              "api": "Application",
+                              "dataModel": "Inventory",
+                              "labelField": "number",
+                              "labelPath": "number",
+                              "additionalFields": [
+                                "number",
+                                "id",
+                                "inventoryStatus.id",
+                                "location.id",
+                                "quantity.value",
+                                "quantity.unitId",
+                                "lotId"
+                              ],
+                              "selectFields": [
+                                "id",
+                                "number",
+                                "location.name",
+                                "inventoryStatus.id"
+                              ],
+                              "linkTarget": null,
+                              "query": {
+                                "fields": [
+                                  "inventory.id",
+                                  "inventory.number",
+                                  "inventory.inventoryStatus.id",
+                                  "inventory.location.id",
+                                  "inventory.location.name"
+                                ]
+                              },
+                              "name": "Inventory Serial",
+                              "additionalFilter": {
+                                "__transform": "{\"active\": { \"_eq\": false },\"inventoryStatusId\":{\"_eq\":\"Shipped\"},\"productId\": {\"_in\": [data.product.id]}}"
+                              }
+                            },
+                            {
+                              "label": "Location",
+                              "uniqueValidationEnabled": false,
+                              "validation": {
+                                "required": false
+                              },
+                              "dataPath": "inventory.location.id",
+                              "field": "location",
+                              "description": "",
+                              "element": "TextInput",
+                              "type": "text",
+                              "name": "location",
+                              "visible": false,
+                              "target": {
+                                "dataPath": "locationId"
+                              }
+                            }
+                          ],
+                          "title": "Link Shipped Inventory"
+                        },
+                        {
+                          "type": "mutation",
+                          "api": "Application",
+                          "message": "Inventory Link Created",
+                          "mutation": "mutation Mutation($payload: [InventoryUpdatePayloadInput!]!) {\n  updateInventory(payload: $payload) {\n    id\n  }\n}\n",
+                          "transforms": {
+                            "pre": "(\n\t$previouslyLinkedSerial := $coalesce([rowData.customData.inventoryRMA,rowData.customData]);\n\t$newLinkedSerial := data.inventory;\n\t$currentSerial := rowData.id;\n\t$prev := $previouslyLinkedSerial\n\t\t? {\n\t\t\t\"update\": { \"inventoryStatusId\": \"Shipped\" },\n\t\t\t\"where\": { \"id\": $previouslyLinkedSerial }\n\t\t}\n\t\t: [];\n\t{\n\t\t\"payload\": $append(\n\t\t\t[\n\t\t\t\t{\n\t\t\t\t\t\"update\": {\n\t\t\t\t\t\t\"customData\": {\n\t\t\t\t\t\t\t\"inventoryRMA\": $newLinkedSerial,\n\t\t\t\t\t\t\t\"locationId\": data.locationId\n\t\t\t\t\t\t}\n\t\t\t\t\t},\n\t\t\t\t\t\"where\": { \"id\": $currentSerial }\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"update\": { \"inventoryStatusId\": \"Pending Return\" },\n\t\t\t\t\t\"where\": { \"id\": $newLinkedSerial }\n\t\t\t\t}\n\t\t\t],\n\t\t\t$prev\n\t\t)\n\t}\n)"
+                          }
+                        },
+                        {
+                          "type": "transformation",
+                          "transformation": "(\n$components.Table4.fn.search()\n)"
+                        }
+                      ],
+                      "useIconButton": true
+                    },
+                    {
+                      "title": "Delete Inventory",
+                      "useIconButton": true,
+                      "icon": {
+                        "icon": "trash",
+                        "color": "error",
+                        "variant": "light",
+                        "size": "large"
+                      },
+                      "action": [
+                        {
+                          "type": "confirmation",
+                          "message": {
+                            "__transform": "\"This action is irreversible. By performing this action, the entire Receipt line and potentially the entire receipt maybe deleted as well, if this is the only inventory attached. If other inventory is attached, only this record will be deleted from Fuuz.\""
+                          }
+                        },
+                        {
+                          "type": "flow",
+                          "flowId": "rmaReceiptConfirmationFromScreen",
+                          "transforms": {
+                            "pre": "{\n  \"REQUEST\": {\n    \"ACTION\": \"DELETE_LINE_INV\",\n    \"DATA\": {\n      \"inventoryId\": $$.rowData.id\n    }\n  }\n}"
+                          }
+                        },
+                        {
+                          "type": "transformation",
+                          "transformation": "(\n$components.Table3.fn.search();\n$components.Table2.fn.search())"
+                        }
+                      ],
+                      "hidden": false,
+                      "disabled": false
+                    },
+                    {
+                      "title": "Print Label for Inventory (wire up label)",
+                      "useIconButton": true,
+                      "icon": {
+                        "icon": "barcode-read",
+                        "color": "info",
+                        "variant": "light",
+                        "size": "large"
+                      },
+                      "action": [
+                        {
+                          "type": "confirmation",
+                          "message": "Wire up label format!",
+                          "submitIcon": {
+                            "icon": "check",
+                            "color": "inherit",
+                            "variant": "light",
+                            "size": "icon"
+                          }
+                        }
+                      ],
+                      "disabled": true
+                    }
+                  ],
+                  "width": "auto"
+                },
+                "displayName": "Table Column",
+                "custom": {
+                  "elementName": "TableColumn45"
+                },
+                "parent": "mkGpx-jsw",
+                "hidden": false,
+                "nodes": [],
+                "linkedNodes": {}
+              },
+              "GirVxq-Ea": {
+                "type": {
+                  "resolvedName": "TableColumn"
+                },
+                "isCanvas": false,
+                "props": {
+                  "label": "Product Code",
+                  "format": "text",
+                  "sortable": true,
+                  "dataPath": "product.code",
+                  "field": "product.code",
+                  "query": {
+                    "fields": [
+                      "product.id",
+                      "product.code"
+                    ]
+                  },
+                  "description": "Label field ( number - revision) - (REQUIRED)"
+                },
+                "displayName": "Table Column",
+                "custom": {
+                  "elementName": "TableColumn50"
+                },
+                "parent": "mkGpx-jsw",
+                "hidden": false,
+                "nodes": [],
+                "linkedNodes": {}
+              },
+              "839eFUE8X": {
+                "type": {
+                  "resolvedName": "TableColumn"
+                },
+                "isCanvas": false,
+                "props": {
+                  "label": "Status",
+                  "format": "text",
+                  "sortable": true,
+                  "dataPath": "status.name",
+                  "field": "status.name",
+                  "style": {
+                    "__transform": "{\n  \"background\":data.status.color\n}",
+                    "__dynamicFields": {
+                      "payload": null,
+                      "context": []
+                    },
+                    "__cacheKey": "",
+                    "__remote": false
+                  }
+                },
+                "displayName": "Table Column",
+                "custom": {
+                  "elementName": "TableColumn55"
+                },
+                "parent": "GFB5ptsYu",
+                "hidden": false,
+                "nodes": [],
+                "linkedNodes": {}
+              },
+              "Adc7L9lim": {
+                "type": {
+                  "resolvedName": "Container"
+                },
+                "isCanvas": true,
+                "props": {
+                  "padding": 0,
+                  "margin": 0,
+                  "flexWrap": true,
+                  "flexDirection": "column",
+                  "justifyContent": "flex-start",
+                  "alignItems": "stretch",
+                  "width": "100%",
+                  "height": "auto",
+                  "hidden": false,
+                  "flexGrow": false,
+                  "flexShrink": false,
+                  "shadow": false,
+                  "borderRadius": 0,
+                  "collapsible": false,
+                  "collapsedFooter": false,
+                  "collapsedSize": 0,
+                  "collapsedByDefault": false,
+                  "onClickTransform": false,
+                  "layout": "flex",
+                  "bordersInput": {},
+                  "justifyItems": "start",
+                  "style": {}
+                },
+                "displayName": "Container",
+                "custom": {
+                  "elementName": "Container6"
+                },
+                "parent": "Te4Bt_Yl5i",
+                "hidden": false,
+                "nodes": [
+                  "cly7bv1la000e356ha5leyqwu",
+                  "DmGt0UzqM",
+                  "eq4fxd-ro",
+                  "5Ho0sunsw",
+                  "o76dkmnEV",
+                  "Q_RWpcplT"
+                ],
+                "linkedNodes": {}
+              },
+              "DmGt0UzqM": {
+                "type": {
+                  "resolvedName": "SelectInput"
+                },
+                "isCanvas": false,
+                "props": {
+                  "padding": 5,
+                  "width": "100%",
+                  "height": "auto",
+                  "validation": {
+                    "required": false
+                  },
+                  "uniqueValidationEnabled": false,
+                  "visible": true,
+                  "type": "select",
+                  "label": "Supplier",
+                  "dialogMode": "never",
+                  "multiselect": false,
+                  "isClearable": true,
+                  "selectAll": true,
+                  "searchPredicate": "contains",
+                  "api": "Application",
+                  "stateTracking": "full",
+                  "optionLimit": 30,
+                  "optionLimitFlex": 5,
+                  "formElement": "Form1",
+                  "target": {
+                    "dataPath": "purchaseOrder.supplierId._eq"
+                  },
+                  "dataPath": "purchaseOrderLine.purchaseOrder.supplier.id",
+                  "labelPath": "code",
+                  "orderByField": "code",
+                  "query": {
+                    "fields": [
+                      "purchaseOrderLine.purchaseOrder.supplier.id.id",
+                      "purchaseOrderLine.purchaseOrder.supplier.id.code"
+                    ]
+                  },
+                  "dataModel": "Supplier",
+                  "selectFields": [
+                    "code"
+                  ],
+                  "orderByDirection": "asc",
+                  "additionalFilter": {
+                    "active": {
+                      "_eq": true
+                    }
+                  }
+                },
+                "displayName": "Select",
+                "custom": {
+                  "elementName": "Select1"
+                },
+                "parent": "Adc7L9lim",
+                "hidden": false,
+                "nodes": [],
+                "linkedNodes": {}
+              },
+              "eq4fxd-ro": {
+                "type": {
+                  "resolvedName": "SelectInput"
+                },
+                "isCanvas": false,
+                "props": {
+                  "padding": 5,
+                  "width": "100%",
+                  "height": "auto",
+                  "validation": {
+                    "required": false
+                  },
+                  "uniqueValidationEnabled": false,
+                  "visible": true,
+                  "type": "select",
+                  "label": "Purchase Order",
+                  "dialogMode": "never",
+                  "multiselect": false,
+                  "isClearable": true,
+                  "selectAll": true,
+                  "searchPredicate": "contains",
+                  "api": "Application",
+                  "stateTracking": "full",
+                  "optionLimit": 30,
+                  "optionLimitFlex": 5,
+                  "formElement": "Form1",
+                  "target": {
+                    "dataPath": "purchaseOrder.id._eq"
+                  },
+                  "dataPath": "purchaseOrder.id",
+                  "predicate": "_eq",
+                  "labelPath": "number",
+                  "orderByField": "number",
+                  "query": {
+                    "fields": [
+                      "purchaseOrder.id.id",
+                      "purchaseOrder.id.number"
+                    ]
+                  },
+                  "dataModel": "PurchaseOrder",
+                  "selectFields": [
+                    "number"
+                  ],
+                  "additionalFields": [],
+                  "orderByDirection": "asc",
+                  "disabled": false,
+                  "additionalFilter": {
+                    "__transform": "{\n  \"supplierId\": {\n    \"_eq\": $components.Form1.data.purchaseOrder.supplier.id\n  },\n  \"facilityId\": {\n  \"_eq\": $components.Form1.data.location.facilityId\n  },\n  \"purchaseOrderStatusId\": {\n    \"_in\": [\n      \"Partially Received\",\n      \"Pending Billing/Partially Received\",\n      \"Pending Receipt\",\n      \"Pending Sync\"\n    ]\n  }\n}",
+                    "__dynamicFields": [
+                      "data.purchaseOrderLine.purchaseOrder.supplier.id.id"
+                    ],
+                    "__cacheKey": "",
+                    "__remote": false
+                  },
+                  "onChange": "$isNilOrEmpty($$.oldValue.id)\nor\n$$.newValue.id != $$.oldValue.id\n?\n$components.LineTable.fn.loadData({\n  \"filter\": {\n    \"purchaseOrder\":{\n      \"id\": {\n        \"_eq\": $$.newValue.id\n      },\n      \"purchaseOrderStatus\": {\n        \"active\": {\n          \"_eq\":true\n        }\n      }\n    },\n    \"purchaseOrderLineStatus\": {\n      \"active\": {\n         \"_eq\": true\n      }\n    }\n  }\n})"
+                },
+                "displayName": "Select",
+                "custom": {
+                  "elementName": "Select2"
+                },
+                "parent": "Adc7L9lim",
+                "hidden": false,
+                "nodes": [],
+                "linkedNodes": {}
+              },
+              "5Ho0sunsw": {
+                "type": {
+                  "resolvedName": "SelectInput"
+                },
+                "isCanvas": false,
+                "props": {
+                  "padding": 5,
+                  "width": "100%",
+                  "height": "auto",
+                  "validation": {
+                    "required": false
+                  },
+                  "uniqueValidationEnabled": false,
+                  "visible": true,
+                  "type": "select",
+                  "label": "Transfer Order",
+                  "dialogMode": "never",
+                  "multiselect": false,
+                  "isClearable": true,
+                  "selectAll": true,
+                  "searchPredicate": "contains",
+                  "api": "Application",
+                  "stateTracking": "full",
+                  "optionLimit": 30,
+                  "optionLimitFlex": 5,
+                  "formElement": "Form1",
+                  "dataPath": "transferOrder",
+                  "target": {
+                    "dataPath": "transferOrderId._eq"
+                  },
+                  "description": "",
+                  "field": "transferOrder",
+                  "predicate": "_eq",
+                  "labelPath": "number",
+                  "orderByField": "number",
+                  "query": {
+                    "fields": [
+                      "transferOrder.id",
+                      "transferOrder.number"
+                    ]
+                  },
+                  "dataModel": "TransferOrder",
+                  "selectFields": [
+                    "number"
+                  ],
+                  "additionalFields": [],
+                  "orderByDirection": "asc",
+                  "additionalFilter": {
+                    "__transform": "{\n\n  \"toFacilityId\": {\n  \"_eq\": $components.Form1.data.location.facilityId\n  },\n  \"transferOrderStatusId\": {\n    \"_in\": [\n      \"Pending Receipt/Partially Fulfilled\",\n      \"Pending Receipt\",\n      \"Shipped\"\n    ]\n  }\n}",
+                    "__dynamicFields": {
+                      "payload": null,
+                      "context": []
+                    },
+                    "__cacheKey": "",
+                    "__remote": false
+                  }
+                },
+                "displayName": "Select",
+                "custom": {
+                  "elementName": "Select3"
+                },
+                "parent": "Adc7L9lim",
+                "hidden": false,
+                "nodes": [],
+                "linkedNodes": {}
+              },
+              "o76dkmnEV": {
+                "type": {
+                  "resolvedName": "SelectInput"
+                },
+                "isCanvas": false,
+                "props": {
+                  "padding": 5,
+                  "width": "100%",
+                  "height": "auto",
+                  "validation": {
+                    "required": false
+                  },
+                  "uniqueValidationEnabled": false,
+                  "visible": true,
+                  "type": "select",
+                  "label": "Product",
+                  "dialogMode": "never",
+                  "multiselect": false,
+                  "isClearable": true,
+                  "selectAll": true,
+                  "searchPredicate": "contains",
+                  "api": "Application",
+                  "stateTracking": "full",
+                  "optionLimit": 30,
+                  "optionLimitFlex": 5,
+                  "formElement": "Form1",
+                  "target": {
+                    "dataPath": "purchaseOrder.lines._some.productId._eq"
+                  },
+                  "predicate": "_eq",
+                  "dataPath": "purchaseOrderLine.product.id",
+                  "labelPath": "code",
+                  "orderByField": "code",
+                  "query": {
+                    "fields": [
+                      "purchaseOrderLine.product.id.id",
+                      "purchaseOrderLine.product.id.code"
+                    ]
+                  },
+                  "dataModel": "Product",
+                  "selectFields": [
+                    "code"
+                  ],
+                  "additionalFields": [
+                    "active",
+                    "productStage.active"
+                  ],
+                  "orderByDirection": "asc",
+                  "additionalFilter": {
+                    "__transform": "{\n\"active\": { \n\"_eq\": true}\n}\n\n\n\n",
+                    "__dynamicFields": {
+                      "payload": null,
+                      "context": []
+                    },
+                    "__cacheKey": "",
+                    "__remote": false
+                  }
+                },
+                "displayName": "Select",
+                "custom": {
+                  "elementName": "Select4"
+                },
+                "parent": "Adc7L9lim",
+                "hidden": false,
+                "nodes": [],
+                "linkedNodes": {}
+              },
+              "kZpEVv9GD": {
+                "type": {
+                  "resolvedName": "Container"
+                },
+                "isCanvas": true,
+                "props": {
+                  "padding": 0,
+                  "margin": 0,
+                  "flexWrap": true,
+                  "flexDirection": "column",
+                  "justifyContent": "flex-start",
+                  "alignItems": "stretch",
+                  "width": "100%",
+                  "height": "auto",
+                  "hidden": false,
+                  "flexGrow": true,
+                  "flexShrink": false,
+                  "shadow": false,
+                  "borderRadius": 0,
+                  "collapsible": false,
+                  "collapsedFooter": false,
+                  "collapsedSize": 0,
+                  "collapsedByDefault": false,
+                  "onClickTransform": false,
+                  "layout": "flex",
+                  "bordersInput": {},
+                  "justifyItems": "start",
+                  "style": {}
+                },
+                "displayName": "Container",
+                "custom": {
+                  "elementName": "Container7"
+                },
+                "parent": "JgXIahnGa",
+                "hidden": false,
+                "nodes": [
+                  "JFif3bnZN"
+                ],
+                "linkedNodes": {}
+              },
+              "JgXIahnGa": {
+                "type": {
+                  "resolvedName": "Container"
+                },
+                "isCanvas": true,
+                "props": {
+                  "padding": 0,
+                  "margin": 0,
+                  "flexWrap": false,
+                  "flexDirection": "row",
+                  "justifyContent": "flex-start",
+                  "alignItems": "stretch",
+                  "width": "100%",
+                  "height": "auto",
+                  "hidden": false,
+                  "flexGrow": true,
+                  "flexShrink": false,
+                  "shadow": false,
+                  "borderRadius": 0,
+                  "collapsible": false,
+                  "collapsedFooter": false,
+                  "collapsedSize": 0,
+                  "collapsedByDefault": false,
+                  "onClickTransform": false,
+                  "layout": "flex",
+                  "bordersInput": {},
+                  "justifyItems": "start",
+                  "style": {}
+                },
+                "displayName": "Container",
+                "custom": {
+                  "elementName": "Container8"
+                },
+                "parent": "ROOT",
+                "hidden": false,
+                "nodes": [
+                  "hmyxapvf7",
+                  "kZpEVv9GD"
+                ],
+                "linkedNodes": {}
+              },
+              "hmyxapvf7": {
+                "type": {
+                  "resolvedName": "ResizablePanelLayout"
+                },
+                "isCanvas": true,
+                "props": {
+                  "handle": "right",
+                  "toggleHotkey": "",
+                  "defaultSize": 335,
+                  "axis": false,
+                  "minSize": 0,
+                  "maxSize": 335
+                },
+                "displayName": "Resizable Panel",
+                "custom": {
+                  "elementName": "ResizablePanel1"
+                },
+                "parent": "JgXIahnGa",
+                "hidden": false,
+                "nodes": [
+                  "4SjSDtp-H"
+                ],
+                "linkedNodes": {}
+              },
+              "4SjSDtp-H": {
+                "type": {
+                  "resolvedName": "Container"
+                },
+                "isCanvas": true,
+                "props": {
+                  "padding": 0,
+                  "margin": 0,
+                  "flexWrap": false,
+                  "flexDirection": "column",
+                  "justifyContent": "flex-start",
+                  "alignItems": "stretch",
+                  "width": "100%",
+                  "height": "100%",
+                  "hidden": false,
+                  "flexGrow": true,
+                  "flexShrink": false,
+                  "shadow": false,
+                  "borderRadius": 0,
+                  "collapsible": false,
+                  "collapsedFooter": false,
+                  "collapsedSize": 0,
+                  "collapsedByDefault": false,
+                  "onClickTransform": false,
+                  "layout": "flex",
+                  "bordersInput": {},
+                  "justifyItems": "start",
+                  "style": {}
+                },
+                "displayName": "Container",
+                "custom": {
+                  "elementName": "Container9"
+                },
+                "parent": "hmyxapvf7",
+                "hidden": false,
+                "nodes": [
+                  "cly7adjwk00hn356h0sn4g4mz",
+                  "6s8OpvSmA"
+                ],
+                "linkedNodes": {}
+              },
+              "cly7adjwk00hn356h0sn4g4mz": {
+                "type": {
+                  "resolvedName": "Container"
+                },
+                "isCanvas": true,
+                "props": {
+                  "padding": 0,
+                  "margin": 1,
+                  "flexWrap": false,
+                  "flexDirection": "row",
+                  "justifyContent": "flex-start",
+                  "alignItems": "stretch",
+                  "width": "100%",
+                  "height": "auto",
+                  "hidden": false,
+                  "flexGrow": false,
+                  "flexShrink": false,
+                  "shadow": false,
+                  "borderRadius": 4,
+                  "collapsible": false,
+                  "collapsedFooter": false,
+                  "collapsedSize": 0,
+                  "collapsedByDefault": false,
+                  "onClickTransform": false,
+                  "layout": "flex",
+                  "bordersInput": {
+                    "borderMode": "full",
+                    "border": "0px none #e0e0e0"
+                  },
+                  "justifyItems": "start",
+                  "style": {},
+                  "background": "paper"
+                },
+                "displayName": "Container",
+                "custom": {
+                  "elementName": "Container10"
+                },
+                "parent": "4SjSDtp-H",
+                "hidden": false,
+                "nodes": [
+                  "cly7adjwk00ho356huddqkvop"
+                ],
+                "linkedNodes": {}
+              },
+              "cly7adjwk00ho356huddqkvop": {
+                "type": {
+                  "resolvedName": "ButtonsGroup"
+                },
+                "isCanvas": true,
+                "props": {
+                  "margin": 5,
+                  "width": "100%",
+                  "height": "auto",
+                  "verticalOrientation": false
+                },
+                "displayName": "Button Group",
+                "custom": {
+                  "elementName": "ButtonGroup1"
+                },
+                "parent": "cly7adjwk00hn356h0sn4g4mz",
+                "hidden": false,
+                "nodes": [
+                  "uBupZfXpf",
+                  "IFVIEZ8VyK"
+                ],
+                "linkedNodes": {}
+              },
+              "cly7bv1la000e356ha5leyqwu": {
+                "type": {
+                  "resolvedName": "SelectInput"
+                },
+                "isCanvas": false,
+                "props": {
+                  "padding": 5,
+                  "width": "100%",
+                  "height": "auto",
+                  "validation": {
+                    "required": false
+                  },
+                  "uniqueValidationEnabled": false,
+                  "visible": true,
+                  "type": "select",
+                  "label": "Facility",
+                  "dialogMode": "never",
+                  "multiselect": true,
+                  "isClearable": true,
+                  "selectAll": true,
+                  "searchPredicate": "contains",
+                  "api": "Application",
+                  "stateTracking": "full",
+                  "optionLimit": 30,
+                  "optionLimitFlex": 5,
+                  "formElement": "Form1",
+                  "target": {
+                    "dataPath": "location.facilityId._in"
+                  },
+                  "dataPath": "location.facility",
+                  "labelPath": "code",
+                  "orderByField": "code",
+                  "query": {
+                    "fields": [
+                      "location.facility.id",
+                      "location.facility.code"
+                    ]
+                  },
+                  "dataModel": "Facility",
+                  "selectFields": [
+                    "code"
+                  ],
+                  "orderByDirection": "asc",
+                  "additionalFilter": {
+                    "active": {
+                      "_eq": true
+                    }
+                  },
+                  "field": "location.facility",
+                  "predicate": "_in"
+                },
+                "displayName": "Select",
+                "custom": {
+                  "elementName": "Select5"
+                },
+                "parent": "Adc7L9lim",
+                "hidden": false,
+                "nodes": [],
+                "linkedNodes": {}
+              },
+              "Q_RWpcplT": {
+                "type": {
+                  "resolvedName": "Checkbox"
+                },
+                "isCanvas": false,
+                "props": {
+                  "padding": 5,
+                  "width": "100%",
+                  "height": "auto",
+                  "validation": {
+                    "required": false
+                  },
+                  "uniqueValidationEnabled": false,
+                  "visible": false,
+                  "type": "checkbox",
+                  "label": "Pending Inspection (Requires QCS)",
+                  "formElement": "Form1",
+                  "target": {
+                    "dataPath": "pendInsp._eq"
+                  },
+                  "dataPath": "pendInsp",
+                  "predicate": "_eq",
+                  "disabled": false
+                },
+                "displayName": "Checkbox",
+                "custom": {
+                  "elementName": "Checkbox1"
+                },
+                "parent": "Adc7L9lim",
+                "hidden": false,
+                "nodes": [],
+                "linkedNodes": {}
+              },
+              "ts2Bk0wEQe": {
+                "type": {
+                  "resolvedName": "TableColumn"
+                },
+                "isCanvas": false,
+                "props": {
+                  "label": "Lot Number (Supplier)",
+                  "format": "text",
+                  "sortable": true,
+                  "dataPath": "lotNumber",
+                  "field": "lotNumber",
+                  "description": "Incoming lot number",
+                  "query": {}
+                },
+                "displayName": "Table Column",
+                "custom": {
+                  "elementName": "TableColumn60"
+                },
+                "parent": "GFB5ptsYu",
+                "hidden": false,
+                "nodes": [],
+                "linkedNodes": {}
+              },
+              "5el1gSIit": {
+                "type": {
+                  "resolvedName": "TableColumn"
+                },
+                "isCanvas": false,
+                "props": {
+                  "label": " ",
+                  "sortable": true,
+                  "dataPath": "nope",
+                  "width": "50",
+                  "query": {
+                    "fields": []
+                  }
+                },
+                "displayName": "Table Column",
+                "custom": {
+                  "elementName": "TableColumn61"
+                },
+                "parent": "JFif3bnZN",
+                "hidden": false,
+                "nodes": [],
+                "linkedNodes": {}
+              },
+              "4z98Y-RGGz": {
+                "type": {
+                  "resolvedName": "TableColumn"
+                },
+                "isCanvas": false,
+                "props": {
+                  "label": " ",
+                  "sortable": true,
+                  "dataPath": "nope",
+                  "width": "50",
+                  "query": {
+                    "fields": []
+                  },
+                  "style": {
+                    "justifyContent": "flex-start"
+                  }
+                },
+                "displayName": "Table Column",
+                "custom": {
+                  "elementName": "TableColumn62"
+                },
+                "parent": "GFB5ptsYu",
+                "hidden": false,
+                "nodes": [],
+                "linkedNodes": {}
+              },
+              "aPR0kHqR65": {
+                "type": {
+                  "resolvedName": "TableColumn"
+                },
+                "isCanvas": false,
+                "props": {
+                  "label": "Note",
+                  "format": "text",
+                  "sortable": false,
+                  "dataPath": "note",
+                  "description": "Note field for more information.",
+                  "query": {},
+                  "field": "note",
+                  "width": "200",
+                  "wrapText": true
+                },
+                "displayName": "Table Column",
+                "custom": {
+                  "elementName": "TableColumn64"
+                },
+                "parent": "JFif3bnZN",
+                "hidden": false,
+                "nodes": [],
+                "linkedNodes": {}
+              },
+              "ofNyjntFgq": {
+                "type": {
+                  "resolvedName": "TableColumn"
+                },
+                "isCanvas": false,
+                "props": {
+                  "label": "Note",
+                  "format": "markdown",
+                  "sortable": false,
+                  "dataPath": "note",
+                  "description": "Note field for more information.",
+                  "field": "note",
+                  "query": {},
+                  "width": "200",
+                  "wrapText": true
+                },
+                "displayName": "Table Column",
+                "custom": {
+                  "elementName": "TableColumn65"
+                },
+                "parent": "GFB5ptsYu",
+                "hidden": false,
+                "nodes": [],
+                "linkedNodes": {}
+              },
+              "tdLcKm5oxK": {
+                "type": {
+                  "resolvedName": "TableColumn"
+                },
+                "isCanvas": false,
+                "props": {
+                  "label": "Supplier Labeled",
+                  "format": "checkmark",
+                  "sortable": false,
+                  "dataPath": "supplierLabel",
+                  "field": "supplierLabel",
+                  "description": "Supplier Labeled inventory (REQUIRED, DEFAULT=TRUE)",
+                  "query": {}
+                },
+                "displayName": "Table Column",
+                "custom": {
+                  "elementName": "TableColumn66"
+                },
+                "parent": "GFB5ptsYu",
+                "hidden": false,
+                "nodes": [],
+                "linkedNodes": {}
+              },
+              "IFVIEZ8VyK": {
+                "type": {
+                  "resolvedName": "ActionButton"
+                },
+                "isCanvas": false,
+                "props": {
+                  "margin": 6,
+                  "buttonColor": "primary",
+                  "icon": {
+                    "icon": "scanner-gun",
+                    "color": "inherit",
+                    "variant": "light",
+                    "size": "medium"
+                  },
+                  "width": "60px",
+                  "height": "60px",
+                  "disabled": true,
+                  "hidden": false,
+                  "useIconButton": false,
+                  "disableHover": true,
+                  "disableRipple": false,
+                  "action": [
+                    {
+                      "type": "transformation",
+                      "transformation": "$components.Table2.fn.search()",
+                      "remote": false
+                    }
+                  ],
+                  "title": "Search",
+                  "customIconSize": 1
+                },
+                "displayName": "Action Button",
+                "custom": {
+                  "elementName": "ActionButton14"
+                },
+                "parent": "cly7adjwk00ho356huddqkvop",
+                "hidden": false,
+                "nodes": [],
+                "linkedNodes": {}
+              },
+              "O0R2wOXNvI": {
+                "type": {
+                  "resolvedName": "TableColumn"
+                },
+                "isCanvas": false,
+                "props": {
+                  "label": "Linked RMA Inventory",
+                  "format": "json",
+                  "sortable": true,
+                  "dataPath": "customData",
+                  "description": "Custom data from another system.",
+                  "field": "customData",
+                  "query": {},
+                  "data": {
+                    "__transform": "data.customData.inventoryRMA",
+                    "__dynamicFields": {
+                      "payload": null,
+                      "context": []
+                    },
+                    "__cacheKey": "",
+                    "__remote": false
+                  }
+                },
+                "displayName": "Table Column",
+                "custom": {
+                  "elementName": "TableColumn67"
+                },
+                "parent": "mkGpx-jsw",
+                "hidden": false,
+                "nodes": [],
+                "linkedNodes": {}
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "routes": [
+    {
+      "id": "cm3oqotg702bo01903vnlboqn",
+      "title": "Customer Return Authorization Receipt Confirmation",
+      "path": "/warehouseManagement/inventoryControl/customerReturnAuthorizationReceiptConfirmation",
+      "moduleId": "inventoryControl",
+      "screenId": "customerReturnAuthorizationReceiptConfirmation",
+      "isMenuAccessible": true,
+      "submenu": ""
+    }
+  ]
+}

@@ -1,0 +1,809 @@
+{
+  "packageDefinition": {
+    "name": "MES-NetSuite"
+  },
+  "packageDefinitionVersion": {
+    "id": "cm98oymxs0019356lof85emw0",
+    "version": "2025.4.0",
+    "packageDefinitionId": "cm8xct1bi029l017g2w8xdn57",
+    "exportedFileId": null
+  },
+  "packageDefinitionSelections": [
+    {
+      "id": "cm98oync1001a356lfkz3dz86",
+      "api": "application",
+      "modelName": "DataFlow",
+      "selected": [
+        {
+          "id": "mesNsNetSuiteInbound",
+          "label": "MES-NS-NetSuite Inbound"
+        },
+        {
+          "id": "mesNsNetSuiteQueryAssemblyItem",
+          "label": "MES-NS-NetSuite: Query Assembly Item"
+        },
+        {
+          "id": "mesNsNetSuiteQueryBom",
+          "label": "MES-NS-NetSuite: Query BOM"
+        },
+        {
+          "id": "mesNsNetSuiteQueryCustomer",
+          "label": "MES-NS-NetSuite: Query Customer"
+        },
+        {
+          "id": "mesNsNetSuiteQueryItem",
+          "label": "MES-NS-NetSuite: Query Item"
+        },
+        {
+          "id": "mesNsNetSuiteQueryLocation",
+          "label": "MES-NS-NetSuite: Query Location"
+        },
+        {
+          "id": "mesNsNetSuiteQueryPurchaseOrder",
+          "label": "MES-NS-NetSuite: Query Purchase Order"
+        },
+        {
+          "id": "mesNsNetSuiteQuerySalesOrder",
+          "label": "MES-NS-NetSuite: Query Sales Order"
+        },
+        {
+          "id": "mesNsNetSuiteQuerySystemData",
+          "label": "MES-NS-NetSuite: Query System Data"
+        },
+        {
+          "id": "mesNsNetSuiteQueryTransferOrder",
+          "label": "MES-NS-NetSuite: Query Transfer Order"
+        },
+        {
+          "id": "mesNsNetSuiteQueryVendor",
+          "label": "MES-NS-NetSuite: Query Vendor"
+        },
+        {
+          "id": "mesNsNetSuiteQueryWorkOrder",
+          "label": "MES-NS-NetSuite: Query Work Order"
+        },
+        {
+          "id": "mesNsNetSuiteQueryWorkcenter",
+          "label": "MES-NS-NetSuite: Query Workcenter"
+        },
+        {
+          "id": "mesNsNetsuiteOutbound",
+          "label": "MES-NS-Netsuite: Outbound"
+        },
+        {
+          "id": "mesNsNetSuiteQueryVendorReturnAuthorization",
+          "label": "MES-NS-NetSuite: Query Vendor Return Authorization"
+        },
+        {
+          "id": "mesNsNetSuiteQueryCustomerReturnAuthorization",
+          "label": "MES-NS-NetSuite: Query Customer Return Authorization"
+        },
+        {
+          "id": "rmaReceiptConfirmationFromScreen",
+          "label": "RMA Receipt Confirmation From Screen"
+        },
+        {
+          "id": "vendorReturnAuthorizationShippingMobileWebFlow",
+          "label": "vendor return authorization shipping mobile web flow"
+        }
+      ],
+      "fields": [
+        {
+          "name": "id"
+        },
+        {
+          "name": "name"
+        },
+        {
+          "name": "description"
+        },
+        {
+          "name": "active"
+        },
+        {
+          "name": "dataFlowTypeId"
+        },
+        {
+          "name": "moduleId"
+        }
+      ],
+      "metadata": {
+        "dataTransform": "$",
+        "labelField": "name",
+        "defaultLabelField": [
+          {
+            "name": "name"
+          }
+        ],
+        "viewFields": [
+          {
+            "id": "id",
+            "label": "id"
+          },
+          {
+            "id": "name",
+            "label": "name"
+          }
+        ]
+      },
+      "packageDefinitionVersionId": "cm98oymxs0019356lof85emw0"
+    },
+    {
+      "id": "cm98oync1001b356ljxap9ujw",
+      "api": "application",
+      "modelName": "Screen",
+      "selected": [
+        {
+          "id": "integration",
+          "label": "Integration"
+        },
+        {
+          "id": "customerReturnAuthorizationReceiptConfirmation",
+          "label": "Customer Return Authorization Receipt Confirmation"
+        },
+        {
+          "id": "vendorReturnAuthorizationShipping",
+          "label": "Vendor Return Authorization Shipping"
+        }
+      ],
+      "fields": [
+        {
+          "name": "id"
+        },
+        {
+          "name": "name"
+        },
+        {
+          "name": "description"
+        },
+        {
+          "name": "active"
+        },
+        {
+          "name": "moduleId"
+        },
+        {
+          "name": "isWidget"
+        }
+      ],
+      "metadata": {
+        "dataTransform": "$",
+        "labelField": "name",
+        "defaultLabelField": [
+          {
+            "name": "name"
+          }
+        ],
+        "viewFields": [
+          {
+            "id": "id",
+            "label": "id"
+          },
+          {
+            "id": "name",
+            "label": "name"
+          }
+        ]
+      },
+      "packageDefinitionVersionId": "cm98oymxs0019356lof85emw0"
+    },
+    {
+      "id": "cm98oync1001c356lwoidhrw3",
+      "api": "application",
+      "modelName": "Connection",
+      "selected": [
+        {
+          "id": "ckyx563hf00010j5229swdmsm",
+          "label": "Netsuite (Restlets MES)"
+        }
+      ],
+      "fields": [
+        {
+          "name": "id"
+        },
+        {
+          "name": "name"
+        },
+        {
+          "name": "active"
+        },
+        {
+          "name": "connectorId"
+        },
+        {
+          "name": "url"
+        },
+        {
+          "name": "options"
+        },
+        {
+          "name": "credentials"
+        }
+      ],
+      "metadata": {
+        "dataTransform": "$",
+        "labelField": "name",
+        "defaultLabelField": [
+          {
+            "name": "name"
+          }
+        ],
+        "viewFields": [
+          {
+            "id": "id",
+            "label": "id"
+          },
+          {
+            "id": "name",
+            "label": "name"
+          }
+        ]
+      },
+      "packageDefinitionVersionId": "cm98oymxs0019356lof85emw0"
+    },
+    {
+      "id": "cm98oync1001d356l0skieicg",
+      "api": "application",
+      "modelName": "Integration",
+      "selected": [
+        {
+          "id": "NetSuite",
+          "label": "NetSuite"
+        }
+      ],
+      "fields": [
+        {
+          "name": "id"
+        },
+        {
+          "name": "name"
+        },
+        {
+          "name": "active"
+        },
+        {
+          "name": "configurationData"
+        },
+        {
+          "name": "customData"
+        }
+      ],
+      "metadata": {
+        "dataTransform": "$",
+        "labelField": "name",
+        "insertBefore": [
+          {
+            "modelName": "IntegrationModel"
+          }
+        ],
+        "defaultLabelField": [
+          {
+            "name": "name"
+          }
+        ],
+        "viewFields": [
+          {
+            "id": "id",
+            "label": "id"
+          },
+          {
+            "id": "name",
+            "label": "name"
+          }
+        ]
+      },
+      "packageDefinitionVersionId": "cm98oymxs0019356lof85emw0"
+    },
+    {
+      "id": "cm98oync1001e356lxa686vtd",
+      "api": "application",
+      "modelName": "IntegrationModel",
+      "selected": [
+        {
+          "id": "ASSEMBLYITEM",
+          "label": "Assembly Item"
+        },
+        {
+          "id": "CUSTOMER",
+          "label": "Customer"
+        },
+        {
+          "id": "Fulfillment",
+          "label": "Fulfillment"
+        },
+        {
+          "id": "inventoryAdjustment",
+          "label": "Inventory Adjustment"
+        },
+        {
+          "id": "INVENTORYITEM",
+          "label": "Inventory Item"
+        },
+        {
+          "id": "Item",
+          "label": "Item"
+        },
+        {
+          "id": "LOCATION",
+          "label": "Location"
+        },
+        {
+          "id": "NONINVENTORYITEM",
+          "label": "Non Inventory Item"
+        },
+        {
+          "id": "OTHERCHARGEITEM",
+          "label": "Other Charge Item"
+        },
+        {
+          "id": "PURCHASEORDER",
+          "label": "Purchase Order"
+        },
+        {
+          "id": "Receipt",
+          "label": "Receipt"
+        },
+        {
+          "id": "SALESORDER",
+          "label": "Sales Order"
+        },
+        {
+          "id": "System Data",
+          "label": "System Data"
+        },
+        {
+          "id": "TRANSFERORDER",
+          "label": "Transfer Order"
+        },
+        {
+          "id": "VENDOR",
+          "label": "Vendor"
+        },
+        {
+          "id": "WORKORDER",
+          "label": "Work Order"
+        },
+        {
+          "id": "Work Order Completion",
+          "label": "Work Order Completion"
+        },
+        {
+          "id": "WORKORDER_ROUTING",
+          "label": "Work Order Routing"
+        },
+        {
+          "id": "Workcenter",
+          "label": "Workcenter"
+        },
+        {
+          "id": "VENDORRETURNAUTHORIZATION",
+          "label": "Vendor Return Authorization"
+        },
+        {
+          "id": "RETURNAUTHORIZATION",
+          "label": "Return Authorization"
+        },
+        {
+          "id": "inventoryTransfer",
+          "label": "Inventory Transfer"
+        }
+      ],
+      "fields": [
+        {
+          "name": "id"
+        },
+        {
+          "name": "name"
+        },
+        {
+          "name": "order"
+        },
+        {
+          "name": "approvalVarianceRequirement"
+        },
+        {
+          "name": "active"
+        },
+        {
+          "name": "inbound"
+        },
+        {
+          "name": "outbound"
+        },
+        {
+          "name": "requireApproval"
+        },
+        {
+          "name": "subscribed"
+        },
+        {
+          "name": "description"
+        },
+        {
+          "name": "inboundFlowId"
+        },
+        {
+          "name": "outboundFlowId"
+        },
+        {
+          "name": "lastTransactionAt"
+        },
+        {
+          "name": "configurationData"
+        },
+        {
+          "name": "customData"
+        },
+        {
+          "name": "integrationId"
+        },
+        {
+          "name": "fuuzDataModelId"
+        }
+      ],
+      "metadata": {
+        "dataTransform": "$",
+        "labelField": "name",
+        "defaultLabelField": [
+          {
+            "name": "name"
+          }
+        ],
+        "viewFields": [
+          {
+            "id": "id",
+            "label": "id"
+          },
+          {
+            "id": "name",
+            "label": "name"
+          }
+        ]
+      },
+      "packageDefinitionVersionId": "cm98oymxs0019356lof85emw0"
+    },
+    {
+      "id": "cm98oync1001f356l7bkflbqh",
+      "api": "application",
+      "modelName": "Topic",
+      "selected": [
+        {
+          "id": "clqxtjzdq000i018uasi40kya",
+          "label": "clqxtjzdq000i018uasi40kya-netSuite.pagination.customer"
+        },
+        {
+          "id": "clqxtkc79000j018u1bk54myd",
+          "label": "clqxtkc79000j018u1bk54myd-netSuite.pagination.vendor"
+        },
+        {
+          "id": "clqxtkn7h000n019e02ce7ewo",
+          "label": "clqxtkn7h000n019e02ce7ewo-netSuite.pagination.item"
+        },
+        {
+          "id": "clqxtlczt000o019ebzjx8tw9",
+          "label": "clqxtlczt000o019ebzjx8tw9-netSuite.pagination.purchaseOrder"
+        },
+        {
+          "id": "clqxtlrgq000h01753fq9bxm2",
+          "label": "clqxtlrgq000h01753fq9bxm2-netSuite.pagination.workOrder"
+        },
+        {
+          "id": "clqxtm10p000m017f5lrbe7yr",
+          "label": "clqxtm10p000m017f5lrbe7yr-netSuite.pagination.salesOrder"
+        },
+        {
+          "id": "clqxto1qb000i0175gj255ixs",
+          "label": "clqxto1qb000i0175gj255ixs-netSuite.pagination.bom"
+        },
+        {
+          "id": "cltfbdwfu0086016zhpgl9ofk",
+          "label": "cltfbdwfu0086016zhpgl9ofk-netSuite.integration"
+        },
+        {
+          "id": "clthlgubt00a1011ubnb6fdn2",
+          "label": "clthlgubt00a1011ubnb6fdn2-netSuite.pagination.transferOrder"
+        },
+        {
+          "id": "clvcgcngz0kxs016bhk39fze3",
+          "label": "clvcgcngz0kxs016bhk39fze3-netSuite.pagination.phantom"
+        },
+        {
+          "id": "clvg67mly4eia0137fjqu8pc6",
+          "label": "clvg67mly4eia0137fjqu8pc6-netSuite.outbound.receipt"
+        },
+        {
+          "id": "clvg67z3x4eie0137h5dy5dm6",
+          "label": "clvg67z3x4eie0137h5dy5dm6-netSuite.outbound.inventoryAdjustment"
+        },
+        {
+          "id": "clvg689rc429i015j5d4s05fm",
+          "label": "clvg689rc429i015j5d4s05fm-netSuite.outbound.workOrderCompletion"
+        },
+        {
+          "id": "clvg68nzj4eih01378z0c8oyf",
+          "label": "clvg68nzj4eih01378z0c8oyf-netSuite.outbound.fulfillment"
+        },
+        {
+          "id": "clvg6996e4eim01371wgwgkrk",
+          "label": "clvg6996e4eim01371wgwgkrk-netSuite.outbound.assemblyBuild"
+        }
+      ],
+      "fields": [
+        {
+          "name": "id"
+        },
+        {
+          "name": "name"
+        },
+        {
+          "name": "description"
+        },
+        {
+          "name": "valueSchema"
+        },
+        {
+          "name": "webhookAccessible"
+        }
+      ],
+      "metadata": {
+        "dataTransform": "$",
+        "labelField": "id",
+        "viewFields": [
+          {
+            "id": "id",
+            "label": "id"
+          },
+          {
+            "id": "name",
+            "label": "name"
+          }
+        ]
+      },
+      "packageDefinitionVersionId": "cm98oymxs0019356lof85emw0"
+    },
+    {
+      "id": "cm98oync1001g356l6cy8llo7",
+      "api": "application",
+      "modelName": "InventoryStatus",
+      "selected": [
+        {
+          "id": "Returned",
+          "label": "Returned"
+        },
+        {
+          "id": "Pending Return",
+          "label": "Pending Return"
+        }
+      ],
+      "fields": [
+        {
+          "name": "id"
+        },
+        {
+          "name": "name"
+        },
+        {
+          "name": "active"
+        },
+        {
+          "name": "consigned"
+        },
+        {
+          "name": "containment"
+        },
+        {
+          "name": "defective"
+        },
+        {
+          "name": "loaded"
+        },
+        {
+          "name": "mergePrevent"
+        },
+        {
+          "name": "movePrevent"
+        },
+        {
+          "name": "picked"
+        },
+        {
+          "name": "productionLoaded"
+        },
+        {
+          "name": "productionPrevent"
+        },
+        {
+          "name": "received"
+        },
+        {
+          "name": "shipPrevent"
+        },
+        {
+          "name": "shippable"
+        },
+        {
+          "name": "shipped"
+        },
+        {
+          "name": "splitPrevent"
+        },
+        {
+          "name": "staged"
+        },
+        {
+          "name": "suspect"
+        },
+        {
+          "name": "system"
+        },
+        {
+          "name": "usable"
+        },
+        {
+          "name": "color"
+        },
+        {
+          "name": "externalId"
+        },
+        {
+          "name": "message"
+        }
+      ],
+      "metadata": {
+        "dataTransform": "$",
+        "viewFields": [
+          {
+            "id": "id",
+            "label": "id"
+          },
+          {
+            "id": "name",
+            "label": "name"
+          }
+        ],
+        "labelField": "name",
+        "defaultLabelField": [
+          {
+            "name": "name"
+          }
+        ]
+      },
+      "packageDefinitionVersionId": "cm98oymxs0019356lof85emw0"
+    },
+    {
+      "id": "cm98oync1001h356lly51b181",
+      "api": "application",
+      "modelName": "ShipmentType",
+      "selected": [
+        {
+          "id": "Vendor Return Authorization",
+          "label": "Vendor Return Authorization"
+        }
+      ],
+      "fields": [
+        {
+          "name": "id"
+        },
+        {
+          "name": "name"
+        },
+        {
+          "name": "inbound"
+        },
+        {
+          "name": "outbound"
+        },
+        {
+          "name": "system"
+        },
+        {
+          "name": "transfer"
+        },
+        {
+          "name": "useable"
+        },
+        {
+          "name": "color"
+        },
+        {
+          "name": "description"
+        },
+        {
+          "name": "customData"
+        },
+        {
+          "name": "integrationData"
+        }
+      ],
+      "metadata": {
+        "dataTransform": "$",
+        "viewFields": [
+          {
+            "id": "id",
+            "label": "id"
+          },
+          {
+            "id": "name",
+            "label": "name"
+          }
+        ],
+        "labelField": "name",
+        "defaultLabelField": [
+          {
+            "name": "name"
+          }
+        ]
+      },
+      "packageDefinitionVersionId": "cm98oymxs0019356lof85emw0"
+    },
+    {
+      "id": "cm98oync1001i356lk3ewdtv3",
+      "api": "application",
+      "modelName": "InventoryType",
+      "selected": [
+        {
+          "id": "RMA",
+          "label": "RMA"
+        }
+      ],
+      "fields": [
+        {
+          "name": "id"
+        },
+        {
+          "name": "name"
+        },
+        {
+          "name": "finishedGood"
+        },
+        {
+          "name": "rawMaterial"
+        },
+        {
+          "name": "supply"
+        },
+        {
+          "name": "system"
+        },
+        {
+          "name": "usable"
+        },
+        {
+          "name": "wip"
+        },
+        {
+          "name": "color"
+        },
+        {
+          "name": "description"
+        },
+        {
+          "name": "customData"
+        },
+        {
+          "name": "integrationData"
+        }
+      ],
+      "metadata": {
+        "dataTransform": "$",
+        "viewFields": [
+          {
+            "id": "id",
+            "label": "id"
+          },
+          {
+            "id": "name",
+            "label": "name"
+          }
+        ],
+        "labelField": "name",
+        "defaultLabelField": [
+          {
+            "name": "name"
+          }
+        ]
+      },
+      "packageDefinitionVersionId": "cm98oymxs0019356lof85emw0"
+    }
+  ]
+}

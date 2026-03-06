@@ -1,0 +1,10 @@
+{
+  "name": "MES-NetSuite",
+  "version": "2025.4.0",
+  "applicationPublisherId": null,
+  "enterpriseId": "appdev",
+  "environmentId": "build",
+  "dependencies": {},
+  "specVersion": "2.0.0",
+  "platformVersion": "2025.4.0"
+}

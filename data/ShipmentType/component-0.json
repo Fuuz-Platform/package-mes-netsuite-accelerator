@@ -1,0 +1,20 @@
+{
+  "api": "application",
+  "modelName": "ShipmentType",
+  "payload": [
+    {
+      "id": "Vendor Return Authorization",
+      "name": "Vendor Return Authorization",
+      "inbound": false,
+      "outbound": true,
+      "system": false,
+      "transfer": false,
+      "useable": true,
+      "color": null,
+      "description": "Shipments created from Return Material Authorization",
+      "customData": null,
+      "integrationData": null
+    }
+  ],
+  "metadata": {}
+}

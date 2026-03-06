@@ -1,0 +1,21 @@
+{
+  "api": "application",
+  "modelName": "Integration",
+  "payload": [
+    {
+      "id": "NetSuite",
+      "name": "NetSuite",
+      "active": true,
+      "configurationData": {
+        "odbc": false,
+        "completion": true,
+        "post": {
+          "script": "1",
+          "deploy": "1"
+        }
+      },
+      "customData": null
+    }
+  ],
+  "metadata": {}
+}
