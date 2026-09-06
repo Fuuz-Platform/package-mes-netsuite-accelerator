@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MES NetSuite Package &mdash; Fuuz Accelerator</title>
+<meta name="description" content="Fuuz accelerator: MES-NetSuite ERP bidirectional integration â€” work orders, inventory, orders, BOM">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://accelerators.fuuz.com/package-mes-netsuite-accelerator/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://accelerators.fuuz.com/package-mes-netsuite-accelerator/">
+<meta property="og:site_name" content="Fuuz Accelerators">
+<meta property="og:title" content="MES NetSuite Package &mdash; Fuuz Accelerator">
+<meta property="og:description" content="Fuuz accelerator: MES-NetSuite ERP bidirectional integration â€” work orders, inventory, orders, BOM">
+<link rel="icon" href="assets/appicon-violet.svg">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="prose.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareSourceCode",
+  "name": "MES NetSuite Package",
+  "url": "https://accelerators.fuuz.com/package-mes-netsuite-accelerator/",
+  "description": "Fuuz accelerator: MES-NetSuite ERP bidirectional integration \u00e2\u20ac\u201d work orders, inventory, orders, BOM",
+  "codeRepository": "https://github.com/Fuuz-Platform/package-mes-netsuite-accelerator",
+  "applicationCategory": "BusinessApplication",
+  "runtimePlatform": "Fuuz",
+  "author": {
+    "@type": "Organization",
+    "name": "Fuuz",
+    "url": "https://fuuz.com"
+  }
+}
+</script>
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap">
+    <a class="logo" href="../"><img src="assets/logo-horizontal-on-midnight.svg" alt="Fuuz"></a>
+    <span class="section">Accelerators</span>
+    <nav><a href="#overview">Overview</a><a href="#package-contents">Package Contents</a><a href="#architecture">Architecture</a><a href="https://github.com/Fuuz-Platform/package-mes-netsuite-accelerator">GitHub</a></nav>
+  </div>
+</header>
+<main>
+<div class="wrap hero">
+  <p class="eyebrow">Accelerator &middot; Integration package</p>
+  <h1>MES NetSuite <span class="accent">Package</span></h1>
+  <p class="lede">Fuuz accelerator: MES-NetSuite ERP bidirectional integration â€” work orders, inventory, orders, BOM</p>
+  <div class="ctas">
+    <a class="cta cta-primary" href="https://github.com/Fuuz-Platform/package-mes-netsuite-accelerator">Get the package</a>
+    <a class="cta cta-secondary" href="../">All accelerators</a>
+  </div>
+</div>
+<section>
+  <div class="wrap prose">
+<p><strong>Version:</strong> 2025.4.0
+<strong>Platform:</strong> Fuuz ≥ 2025.4.0
+<strong>Enterprise:</strong> appdev
+<strong>Spec Version:</strong> 2.0.0</p>
+<hr />
+<h2 id="overview">Overview</h2>
+<p>The MES-NetSuite Accelerator is the bi-directional integration layer connecting the Fuuz Manufacturing Execution System to Oracle NetSuite ERP. It provides 36 data flows covering inbound NetSuite-to-Fuuz record synchronization (work orders, assembly builds, items, BOMs, locations, customers) and outbound Fuuz-to-NetSuite transaction posting (production completions, assembly build confirmations, scrap, inventory adjustments).</p>
+<p>The integration uses a webhook/inbound receiver model for NetSuite-initiated events and scheduled polling flows for periodic master data synchronization. A routing framework dispatches each incoming NetSuite record to the correct handler flow based on <code>baserecordtype</code> and <code>type</code> fields — enabling a single inbound endpoint to handle all NetSuite record types without custom routing configuration per record.</p>
+<hr />
+<h2 id="package-contents">Package Contents</h2>
+<pre><code>mes-netsuite/
+├── manifest.json
+├── definition.json
+├── package-data.json
+├── data/                        14 seed data files
+├── dataFlows/                   36 integration flows
+└── screens/                     6 screens
+</code></pre>
+<hr />
+<h2 id="architecture">Architecture</h2>
+<h3>Inbound Router: MES-NS-NetSuite Inbound (<code>System</code>, module: <code>integration</code>)</h3>
+<p>The central inbound endpoint. All NetSuite webhook calls arrive here:</p>
+<ol>
+<li><strong>Request</strong> — Receives the NetSuite webhook payload</li>
+<li><strong>Log: INCOMING RECORD/TYPE</strong> — Logs the incoming <code>baserecordtype</code>, <code>type</code>, and <code>id</code> for tracing</li>
+<li><strong>Merge Context: REQ</strong> — Stores the raw payload in flow context under <code>REQUEST.DATA</code></li>
+<li><strong>Query: INTEGRATION</strong> — Looks up the active NetSuite <code>Integration</code> record and its <code>IntegrationModel</code> for the incoming record type (<code>$uppercase(baserecordtype)</code>)</li>
+<li><strong>Execute Model Flow</strong> — Calls <code>$executeFlow(model.inboundFlowId, ...)</code> to dispatch to the type-specific handler flow with the integration context, model metadata, and raw payload</li>
+</ol>
+<p>This architecture means adding support for a new NetSuite record type only requires creating a new <code>IntegrationModel</code> record pointing to a new handler flow — no changes to the router itself.</p>
+<hr />
+<h2 id="data-flows-36">Data Flows (36)</h2>
+<h3>Inbound (NetSuite → Fuuz)</h3>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Flow</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MES-NS-NetSuite Inbound</td>
+<td>Central inbound webhook router; dispatches by record type</td>
+</tr>
+<tr>
+<td>MES-NS-Work Order Inbound</td>
+<td>Processes incoming NetSuite Work Orders → creates/updates Fuuz production runs and work order records</td>
+</tr>
+<tr>
+<td>MES-NS-Assembly Build Inbound</td>
+<td>Handles Assembly Build records → updates production setup outputs and quantities</td>
+</tr>
+<tr>
+<td>MES-NS-Item/Part Inbound</td>
+<td>Syncs NetSuite Items/Parts → Fuuz Product records</td>
+</tr>
+<tr>
+<td>MES-NS-BOM Inbound</td>
+<td>Syncs NetSuite BOM structures → Fuuz product strategy processes</td>
+</tr>
+<tr>
+<td>MES-NS-Customer Inbound</td>
+<td>Syncs NetSuite Customers → Fuuz Customer records</td>
+</tr>
+<tr>
+<td>MES-NS-Location Inbound</td>
+<td>Syncs NetSuite Locations → Fuuz Facility/Location records</td>
+</tr>
+<tr>
+<td>MES-NS-Vendor Inbound</td>
+<td>Syncs NetSuite Vendors → Fuuz Supplier records</td>
+</tr>
+<tr>
+<td>MES-NS-Employee Inbound</td>
+<td>Syncs NetSuite Employees → Fuuz user/operator records</td>
+</tr>
+<tr>
+<td>MES-NS-Purchase Order Inbound</td>
+<td>Handles inbound PO records for receiving workflow integration</td>
+</tr>
+<tr>
+<td>MES-NS-Sales Order Inbound</td>
+<td>Handles inbound SO records for shipment/fulfillment workflow integration</td>
+</tr>
+<tr>
+<td>MES-NS-Inventory Transfer Inbound</td>
+<td>Syncs inventory transfer records from NetSuite</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Outbound (Fuuz → NetSuite)</h3>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Flow</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MES-NS-Production Complete Outbound</td>
+<td>Posts Fuuz production history records to NetSuite as Work Order Completions</td>
+</tr>
+<tr>
+<td>MES-NS-Assembly Build Complete Outbound</td>
+<td>Posts assembly build completions to NetSuite</td>
+</tr>
+<tr>
+<td>MES-NS-Scrap Outbound</td>
+<td>Posts scrap transactions to NetSuite for inventory adjustment</td>
+</tr>
+<tr>
+<td>MES-NS-Inventory Adjustment Outbound</td>
+<td>Posts inventory adjustment transactions to NetSuite</td>
+</tr>
+<tr>
+<td>MES-NS-Receipt Confirm Outbound</td>
+<td>Posts purchase order receipt confirmations to NetSuite</td>
+</tr>
+<tr>
+<td>MES-NS-Shipment Outbound</td>
+<td>Posts shipment records to NetSuite Sales Orders</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Master Data Sync (Scheduled)</h3>
+<div class="tablewrap"><table>
+<thead>
+<tr>
+<th>Flow</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MES-NS-Item Master Sync</td>
+<td>Scheduled bulk sync of NetSuite Items to Fuuz Products</td>
+</tr>
+<tr>
+<td>MES-NS-Customer Master Sync</td>
+<td>Scheduled sync of NetSuite Customers</td>
+</tr>
+<tr>
+<td>MES-NS-Location Master Sync</td>
+<td>Scheduled sync of NetSuite Locations</td>
+</tr>
+<tr>
+<td>MES-NS-Work Order Sync</td>
+<td>Scheduled sync of open Work Orders from NetSuite</td>
+</tr>
+<tr>
+<td>Additional sync flows (14+)</td>
+<td>BOM sync, vendor sync, employee sync, and supporting reference data</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2 id="seed-data-14-records">Seed Data (14 records)</h2>
+<p>Pre-configured reference data:</p>
+<ul>
+<li><strong>Integration record</strong> — The <code>NetSuite</code> integration configuration record with authentication and endpoint settings</li>
+<li><strong>IntegrationModels</strong> — One record per supported NetSuite record type, linking the type name to its inbound handler flow ID</li>
+<li><strong>TransactionType mappings</strong> — NetSuite-to-Fuuz transaction type cross-references for outbound posting</li>
+<li><strong>Connection configuration</strong> — NetSuite REST API connection settings template</li>
+</ul>
+<hr />
+<h2 id="screens-6">Screens (6)</h2>
+<ul>
+<li><strong>NetSuite Integration Status</strong> — Dashboard showing active <code>IntegrationModel</code> configurations, last transaction timestamps, and error indicators</li>
+<li><strong>Integration Model Configuration</strong> — CRUD screen for managing <code>IntegrationModel</code> records (add/remove supported record types, change handler flow assignments)</li>
+<li><strong>Transaction Log</strong> — Searchable log of all inbound and outbound NetSuite transactions with status and payload viewer</li>
+<li><strong>Outbound Queue</strong> — View of pending outbound transactions waiting to be posted to NetSuite</li>
+<li><strong>Error Review</strong> — Screen for reviewing and reprocessing failed integration transactions</li>
+<li><strong>Connection Settings</strong> — NetSuite API connection configuration screen (endpoint, credentials, token management)</li>
+</ul>
+<hr />
+<h2 id="installation">Installation</h2>
+<ol>
+<li>Ensure <code>application-mes-accelerator</code> or <code>application-mes-core-accelerator</code> is installed (provides target data models)</li>
+<li>Import this package via Fuuz Package Manager</li>
+<li>Configure the NetSuite <code>Connection</code> record with API endpoint URL, OAuth token credentials, and account ID</li>
+<li>Activate the NetSuite <code>Integration</code> seed record</li>
+<li>Configure <code>IntegrationModel</code> records for each NetSuite record type your implementation will use, pointing to the appropriate inbound handler flows</li>
+<li>Register the inbound webhook URL (the <code>MES-NS-NetSuite Inbound</code> flow's HTTP trigger URL) in NetSuite as a Script Deployment or Webhook endpoint</li>
+<li>Test with a sample NetSuite record by triggering a manual send and reviewing the Transaction Log</li>
+<li>Activate outbound flows and schedule master data sync flows via <code>package-master-data-flow-config-accelerator</code></li>
+</ol>
+<hr />
+<h2 id="dependencies">Dependencies</h2>
+<ul>
+<li><strong>Fuuz Platform</strong> ≥ 2025.4.0</li>
+<li><strong><code>application-mes-accelerator</code></strong> or <strong><code>application-mes-core-accelerator</code></strong> — provides target data models</li>
+<li><strong>Oracle NetSuite ERP</strong> with REST Web Services and SuiteScript enabled</li>
+<li><strong>NetSuite OAuth 2.0</strong> credentials configured</li>
+<li><strong><code>package-master-data-flow-config-accelerator</code></strong> (optional) — for scheduled master data sync management</li>
+</ul>
+<hr />
+<p><em>Built on the <a href="https://fuuz.com">Fuuz Industrial Operations Platform</a></em></p>
+  </div>
+</section>
+</main>
+<footer>
+  <div class="wrap">
+    <p>Fuuz&reg; is an Enterprise Industrial Intelligence Platform.
+      <a href="https://accelerators.fuuz.com/">All accelerators</a> &middot;
+      <a href="https://github.com/Fuuz-Platform/package-mes-netsuite-accelerator">Source</a> &middot;
+      <a href="https://fuuz.com">fuuz.com</a></p>
+  </div>
+</footer>
+</body>
+</html>
